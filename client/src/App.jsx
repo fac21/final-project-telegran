@@ -1,26 +1,18 @@
 import React from "react";
-import logo from "./logo.png";
-import "./App.css";
+// import "./App.css";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import Home from "./components/Home.jsx";
+import Connect from "./components/Connect.jsx";
 
 function App() {
-  // const [data, setData] = React.useState(null);
-
-  // React.useEffect(() => {
-  //   fetch("/slack")
-  //     .then((response) => response.json())
-  //     .then((data) => setData(data.message));
-  // }, []);
-
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} alt="logo" />
-        {/* <p>{!data ? "Loading..." : data}</p> */}
-        <button type="submit">
-          {" "}
-          <a href="/connect">Get Started</a>
-        </button>
-      </header>
+      <Router>
+        <Switch>
+          <Route path="/" exact component={() => <Home />} />
+          <Route path="/connect" exact component={() => <Connect />} />
+        </Switch>
+      </Router>
     </div>
   );
 }
