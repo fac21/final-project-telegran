@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "cypress open",
     "start": "node server/index.js",
     "build": "cd client && npm install && npm run build"
   },
@@ -22,9 +22,8 @@
   "dependencies": {
     "express": "^4.17.1"
   },
-  "engines": {
-  "node": ">=14.15.0 <15"
+
+  "devDependencies": {
+    "cypress": "^7.4.0"
   }
-
-
 }
