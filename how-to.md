@@ -13,3 +13,14 @@ Source:
 - https://github.com/gavinr/github-csv-tools
 - https://docs.gitlab.com/ee/user/project/issues/csv_import.html
 - https://scottjjackson.medium.com/how-to-bulk-create-issues-in-github-a278d429b7bf
+
+### Sending messages to Slack from a JS file
+
+1. Make a slackbot app on this page https://api.slack.com/apps?new_app=1 and link it to your Slack workspace.
+1. Activate incoming webhooks in the slack app (it gives us an URL, and relates it to a slack channel)
+1. Write a POST fetch request to that URL, with message data as JSON, e.g:
+    ```
+    let testMessage = {
+        "text": "This is a test message!"
+    }
+    ```
