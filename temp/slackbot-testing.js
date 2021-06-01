@@ -3,7 +3,11 @@
 // activate incoming webhooks in slack app (it gives us an URL, and relates it to a slack channel)
 // send POST fetch request to that URL
 
+const dotenv = require('dotenv')
 const fetch = require('node-fetch'); // this will be unnecessary when on the web but is needed for running this file from the command line
+
+dotenv.config()
+
 const URL = process.env.INCOMING_WEBHOOK_URL;
 
 let testMessage = {
