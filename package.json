@@ -21,9 +21,10 @@
   "homepage": "https://github.com/fac21/final-project-telegran#readme",
   "dependencies": {
     "express": "^4.17.1"
+  },
+  "engines": {
+  "node": ">=14.15.0 <15"
   }
 
-// "engines": {
-//   "node": "your-node-version" "v15.8.0"
-// }
+
 }
