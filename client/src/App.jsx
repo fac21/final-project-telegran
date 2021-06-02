@@ -9,6 +9,8 @@ import Welcome from "./components/Welcome.jsx";
 import Success from "./components/Success.jsx";
 import Messages from "./components/Messages.jsx";
 import Speak from "./components/Speak.jsx";
+import Write from "./components/Write.jsx";
+
 
 function App() {
   return (
@@ -25,6 +27,8 @@ function App() {
           <Route path="/welcome" exact component={() => <Welcome />} />
           <Route path="/messages" exact component={() => <Messages />} />
           <Route path="/speak" exact component={() => <Speak />} />
+          <Route path="/write" exact component={() => <Write />} />
+
         </Switch>
       </Router>
     </div>

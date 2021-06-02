@@ -1,5 +1,5 @@
 const { response } = require("express");
-// const fetch = require('node-fetch');
+const fetch = require("node-fetch");
 const dotenv = require("dotenv");
 const path = require("path");
 const express = require("express");
