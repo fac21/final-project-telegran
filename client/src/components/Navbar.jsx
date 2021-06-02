@@ -13,11 +13,11 @@ function Navbar(props) {
         <div>Messages</div>
       </Link>
       <Link to="/write">
-        <img src={write} alt="envelope" className="icon"></img>
+        <img src={write} alt="write" className="icon"></img>
         <div>Write</div>
       </Link>
       <Link to="/emergency">
-        <img src={sos} alt="envelope" className="icon"></img>
+        <img src={sos} alt="emergency" className="icon"></img>
         <div>Emergency</div>
       </Link>
     </div>
