@@ -1,9 +1,7 @@
 import React from "react";
-
 import Navbar from "../../client/src/components/Navbar";
 // import logo from "./logo.png";
 
-// import "./App.css";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Home from "./components/Home.jsx";
 import Connect from "./components/Connect.jsx";
