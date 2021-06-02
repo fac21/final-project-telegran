@@ -12,7 +12,9 @@ function Speak() {
   const { transcript, resetTranscript } = useSpeechRecognition();
 
   if (!SpeechRecognition.browserSupportsSpeechRecognition()) {
-    return null;
+    return (
+      <h1>Your browser does not support Speech recognition. </h1>
+    );
   }
 
   // const [recording, setRecording] = React.useState(false);
