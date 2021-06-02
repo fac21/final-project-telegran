@@ -1,18 +1,27 @@
 import React, { useState } from "react";
 import envelope from "../images/envelope.svg";
+import sos from "../images/sos.svg";
+import write from "../images/write.svg";
+import "../global.css";
+import { Link, withRouter } from "react-router-dom";
 
 function Navbar(props) {
-    
-    return (
-        <div className="navbar">
-            <a href='#'>
-                <img src={envelope} alt="envelope"></img>
-                <div>Messages</div>
-            </a>
-            <a href='#'><div>Write</div></a>
-            <a href='#'><div>Emergency</div></a>
-        </div>
-    );
+  return (
+    <div className="nav">
+      <Link to="/messages">
+        <img src={envelope} alt="envelope" className="icon"></img>
+        <div>Messages</div>
+      </Link>
+      <Link to="/write">
+        <img src={write} alt="envelope" className="icon"></img>
+        <div>Write</div>
+      </Link>
+      <Link to="/emergency">
+        <img src={sos} alt="envelope" className="icon"></img>
+        <div>Emergency</div>
+      </Link>
+    </div>
+  );
 }
 
 export default Navbar;
