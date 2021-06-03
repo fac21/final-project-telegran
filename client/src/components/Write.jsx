@@ -8,8 +8,7 @@ const fetch = require("node-fetch");
 const dotenv = require("dotenv");
 dotenv.config();
 
-function Write() {
-  const [messageContent, setMessageContent] = React.useState("");
+function Write({ messageContent, setMessageContent }) {
   let testMessage = {
     channel: `${process.env.SLACK_CHANNEL_ID}`,
     text: `${messageContent}`,
@@ -42,24 +41,31 @@ function Write() {
           To: Jo
           <img className="avatar" src={profile}></img>
         </div>
-        <form action="#">
-          <textarea
-            placeholder="Start typing..."
-            onChange={(event) => setMessageContent(event.target.value)}
-          ></textarea>
-          <button type="submit"> </button>
-          <a href="/success">
-            <img src={send}></img>
-            Send
-          </a>
-
+        <form
+          action="#"
+          onSubmit={(e) => {
+            e.preventDefault();
+            console.log(e.target.value);
+            setMessageContent(e.target.value);
+          }}
+        >
+          <textarea placeholder="Start typing..."></textarea>
+          <button type="submit">
+            <a href="/success">
+              <img src={send}></img>
+              Send
+            </a>
+          </button>
           <button
             type="submit"
-            onClick={() => {
+            onSubmit={(e) => {
+              e.preventDefault();
               console.log("works");
               sendSlackbotStartMsg(testMessage);
             }}
-          ></button>
+          >
+            Test Button
+          </button>
         </form>
         <div className="msgButtons">
           <a href="/speak">
