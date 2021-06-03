@@ -2,10 +2,11 @@ import React from "react";
 import cancel from "../images/cancel-sos.svg";
 import { Link, withRouter } from "react-router-dom";
 import Nav from "./Navbar.jsx";
+import { EmergencyContainer } from "./Emergency.style";
 
 function Emergency() {
   return (
-    <div>
+    <EmergencyContainer>
       <div>
         <p>Sending SOS in 10 seconds</p>
         <img src={cancel} alt="logo" />
@@ -15,7 +16,7 @@ function Emergency() {
         </button>
       </div>
       <Nav />
-    </div>
+    </EmergencyContainer>
   );
 }
 
