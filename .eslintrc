@@ -1,0 +1,6 @@
+{
+  "extends": ["eslint:recommended", "react-minimal"],
+  "rules": {
+    "react/react-in-jsx-scope": "off"
+  }
+}
