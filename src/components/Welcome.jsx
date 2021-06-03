@@ -2,16 +2,17 @@ import React from "react";
 import { Link, withRouter } from "react-router-dom";
 import logo from "../logo.png";
 import Nav from "./Navbar.jsx";
+import { AppContainer } from "./Container.style";
 
 function Welcome() {
   return (
-    <div>
+    <AppContainer>
       <header>
         <img src={logo} alt="logo" />
       </header>
 
       <Nav />
-    </div>
+    </AppContainer>
   );
 }
 

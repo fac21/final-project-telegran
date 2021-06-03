@@ -1,19 +1,21 @@
 import React from "react";
 import { Link, withRouter } from "react-router-dom";
 import logo from "../logo.png";
+import { Button } from "./Button.style.js";
+import { AppContainer } from "./Container.style";
 
 function Home() {
   return (
-    <div>
+    <AppContainer>
       <header>
         <img src={logo} alt="logo" />
       </header>
 
-      <button type="submit">
+      <Button type="submit">
         {" "}
         <Link to="/connect">Get Started</Link>
-      </button>
-    </div>
+      </Button>
+    </AppContainer>
   );
 }
 

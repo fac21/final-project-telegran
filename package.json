@@ -3,11 +3,13 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "node-fetch": "^2.6.1",
     "react": "^16.13.0",
     "react-dom": "^16.13.0",
     "react-router-dom": "^5.2.0",
     "react-scripts": "^3.4.0",
-    "react-speech-recognition": "^3.8.0"
+    "react-speech-recognition": "^3.8.0",
+    "styled-components": "^5.3.0"
   },
   "scripts": {
     "start": "react-scripts start",
