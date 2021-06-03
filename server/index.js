@@ -3,7 +3,6 @@ const fetch = require("node-fetch");
 // const dotenv = require("dotenv");
 // const path = require("path");
 const bodyParser = require('body-parser');
-const fetch = require("node-fetch");
 const pino = require('express-pino-logger')();
 const express = require("express");
 const PORT = process.env.PORT || 3001;
