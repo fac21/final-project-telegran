@@ -6,7 +6,7 @@ function Success() {
     <div>
       <h1>
         {" "}
-        <Link to="/welcome">Successfully Connected </Link>{" "}
+        <Link to="/video">Successfully Connected </Link>
       </h1>
     </div>
   );
