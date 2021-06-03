@@ -1,8 +1,11 @@
+* {
+  font-family: "Epilogue";
+}
 .nav {
   display: flex;
   width: 100%;
   justify-content: space-around;
 }
 .icon {
-  width: 15rem;
+  width: 10rem;
 }
