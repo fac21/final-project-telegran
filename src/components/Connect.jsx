@@ -1,10 +1,11 @@
 import React from "react";
 import { Link, withRouter } from "react-router-dom";
 import logo from "../logo.png";
+import { AppContainer } from "./Container.style";
 
 function Connect() {
   return (
-    <div>
+    <AppContainer>
       <header>
         <img src={logo} alt="logo" />
         {/* <p>{!data ? "Loading..." : data}</p> */}
@@ -18,7 +19,7 @@ function Connect() {
         {" "}
         <Link to="/connection-success">Connect</Link>
       </button>
-    </div>
+    </AppContainer>
   );
 }
 
