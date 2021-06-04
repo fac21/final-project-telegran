@@ -5,16 +5,20 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Home from "./components/Home.jsx";
 import Navbar from "./components/Navbar";
 import Connect from "./components/Connect.jsx";
+import Video from "./components/Video.jsx";
+import Tutorial from "./components/Tutorial.jsx";
 import Welcome from "./components/Welcome.jsx";
 import Success from "./components/Success.jsx";
 import Messages from "./components/Messages.jsx";
 import Speak from "./components/Speak.jsx";
 import Write from "./components/Write.jsx";
-
+import Emergency from "./components/Emergency.jsx";
 
 function App() {
+  const [messageContent, setMessageContent] = React.useState("");
+  
   return (
-    <div className="App">
+     <div className="App">
       <Router>
         <Switch>
           <Route path="/" exact component={() => <Home />} />
@@ -24,11 +28,22 @@ function App() {
             exact
             component={() => <Success />}
           />
+          <Route path="/video" exact component={() => <Video />} />
+          <Route path="/tutorial" exact component={() => <Tutorial />} />
           <Route path="/welcome" exact component={() => <Welcome />} />
           <Route path="/messages" exact component={() => <Messages />} />
           <Route path="/speak" exact component={() => <Speak />} />
-          <Route path="/write" exact component={() => <Write />} />
-
+          <Route
+            path="/write"
+            exact
+            component={() => (
+              <Write
+                messageContent={messageContent}
+                setMessageContent={setMessageContent}
+              />
+            )}
+          />
+          <Route path="/emergency" exact component={() => <Emergency />} />
         </Switch>
       </Router>
     </div>

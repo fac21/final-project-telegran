@@ -5,8 +5,8 @@ import voice from "../images/voice.svg";
 import send from "../images/send.svg";
 import profile from "../images/profile.svg";
 const fetch = require("node-fetch");
-const dotenv = require("dotenv");
-dotenv.config();
+// const dotenv = require("dotenv");
+// dotenv.config();
 
 function Write() {
   const [messageContent, setMessageContent] = React.useState("");
