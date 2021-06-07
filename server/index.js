@@ -1,5 +1,5 @@
 const { response } = require("express");
-const fetch = require("node-fetch");
+const send = require('../api/sendToSlack');
 // const dotenv = require("dotenv");
 // const path = require("path");
 const bodyParser = require('body-parser');
@@ -29,41 +29,20 @@ app.post('/api/slack', (req, res) => {
     channel: `${process.env.SLACK_CHANNEL_ID}`,
     text: `${req.body.message}`,
   };
-  console.log("message", message);
-  sendSlackbotStartMsg(message);
+  // console.log("message", message);
+  send.sendSlackbotStartMsg(message);
   res.redirect("/success");
 });
 
-app.listen(3001, () => {
-  console.log('Express server is running on localhost:3001');
-  sendSlackbotStartMsg(testMessage);
+app.listen(PORT, () => {
+  console.log(`Express server is running on http://localhost:${PORT}`);
+  let testMessage = {
+    channel: `${process.env.SLACK_CHANNEL_ID}`,
+    text: "The server has started running!",
+  };
+  send.sendSlackbotStartMsg(
+    {
+      channel: `${process.env.SLACK_CHANNEL_ID}`,
+      text: "The server has started running!"
+    });
 });
-
-
-let apiMessage = {
-  channel: `${process.env.SLACK_CHANNEL_ID}`,
-  text: "api route worked",
-};
-
-
-let testMessage = {
-  channel: `${process.env.SLACK_CHANNEL_ID}`,
-  text: "The server has started running!",
-};
-
-function sendSlackbotStartMsg(messageData) {
-  fetch(`${process.env.INCOMING_WEBHOOK_URL}`, {
-    method: "POST",
-    headers: {
-      "content-type": "application/json",
-      Authorization: "Bearer " + process.env.BOT_USER_OAUTH_TOKEN,
-    },
-    body: JSON.stringify(messageData),
-  })
-    .then((response) => {
-      if (!response.ok) throw new Error(response.status);
-      return response;
-    })
-    .then((res) => console.log(res.status, res.statusText))
-    .catch((error) => console.error(error));
-}
