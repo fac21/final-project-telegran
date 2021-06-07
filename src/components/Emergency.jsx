@@ -2,7 +2,9 @@ import React from "react";
 import cancel from "../images/cancelcross.svg";
 import { Link, withRouter } from "react-router-dom";
 import Nav from "./Navbar.jsx";
+import { NavContainer } from "./Nav.style";
 import { EmergencyContainer } from "./Emergency.style";
+import sos from "../images/sos.svg";
 const fetch = require("node-fetch");
 let timeout;
 
@@ -42,10 +44,14 @@ function Emergency() {
   console.log(timer);
   return (
     <EmergencyContainer>
-      <div>
+      <div className="sos-page">
+        <p> Sending </p>
+        <img src={sos} />
         <p>
-          Sending SOS in
-          <span> {timer}</span> seconds
+          {" "}
+          in
+          <span> {timer} </span>
+          seconds{" "}
         </p>
         <img src={cancel} alt="logo" />
         <button type="submit">
@@ -55,7 +61,9 @@ function Emergency() {
           </Link>
         </button>
       </div>
-      <Nav />
+      <NavContainer>
+        <Nav />
+      </NavContainer>
     </EmergencyContainer>
   );
 }

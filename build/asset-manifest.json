@@ -1,0 +1,31 @@
+{
+  "files": {
+    "main.css": "/static/css/main.0476410d.chunk.css",
+    "main.js": "/static/js/main.285690eb.chunk.js",
+    "main.js.map": "/static/js/main.285690eb.chunk.js.map",
+    "runtime-main.js": "/static/js/runtime-main.5ad136f7.js",
+    "runtime-main.js.map": "/static/js/runtime-main.5ad136f7.js.map",
+    "static/js/2.5bbad5d1.chunk.js": "/static/js/2.5bbad5d1.chunk.js",
+    "static/js/2.5bbad5d1.chunk.js.map": "/static/js/2.5bbad5d1.chunk.js.map",
+    "index.html": "/index.html",
+    "precache-manifest.a28440879d46570d7e40ffb843f376a3.js": "/precache-manifest.a28440879d46570d7e40ffb843f376a3.js",
+    "service-worker.js": "/service-worker.js",
+    "static/css/main.0476410d.chunk.css.map": "/static/css/main.0476410d.chunk.css.map",
+    "static/js/2.5bbad5d1.chunk.js.LICENSE.txt": "/static/js/2.5bbad5d1.chunk.js.LICENSE.txt",
+    "static/media/cancelcross.svg": "/static/media/cancelcross.8c08a248.svg",
+    "static/media/envelope.svg": "/static/media/envelope.33e133ff.svg",
+    "static/media/logo.png": "/static/media/logo.476ef1fc.png",
+    "static/media/microphone.svg": "/static/media/microphone.967803c8.svg",
+    "static/media/profile.svg": "/static/media/profile.bbfeb13d.svg",
+    "static/media/send.svg": "/static/media/send.da8fc977.svg",
+    "static/media/sos.svg": "/static/media/sos.b8faa62d.svg",
+    "static/media/voice.svg": "/static/media/voice.61193501.svg",
+    "static/media/write.svg": "/static/media/write.50ddd7f4.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.5ad136f7.js",
+    "static/js/2.5bbad5d1.chunk.js",
+    "static/css/main.0476410d.chunk.css",
+    "static/js/main.285690eb.chunk.js"
+  ]
+}

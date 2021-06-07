@@ -1,5 +1,5 @@
 import styled from "styled-components";
-//import cancelcross from "../images/cancelcross.svg";
+import cancelcross from "../images/cancelcross.svg";
 
 export const EmergencyContainer = styled.div`
   width: 100%;
