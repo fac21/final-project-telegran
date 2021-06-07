@@ -11,10 +11,6 @@ function ReceivedMessage(props) {
         <div className="name">{props.messageName} </div>
         <div className="content">{props.messageContent} </div>
       </div>
-      {/* <div>{props.messageName}</div>
-      <div>{props.messageTime}</div>
-      <div>{props.messageContent}</div>
-      <br></br> */}
     </>
   );
 }

@@ -4,6 +4,7 @@ import Nav from "./Navbar.jsx";
 import ReceivedMessage from "./ReceivedMessage.jsx";
 import { StyledMessage } from "./Message.style";
 import { AppContainer } from "./Container.style";
+import { NavContainer } from "./Nav.style";
 // import Avatar from "../images/profile.svg";
 
 function Messages() {
@@ -44,7 +45,9 @@ function Messages() {
     <AppContainer>
       <div>{fakeMessages}</div>
       <Link to="/message1">Read message</Link>
-      <Nav />
+      <NavContainer>
+        <Nav />
+      </NavContainer>
     </AppContainer>
   );
 }
