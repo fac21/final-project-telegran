@@ -11,45 +11,7 @@ const fetch = require("node-fetch");
 function Write() {
   const [messageContent, setMessageContent] = React.useState("");
   console.log("message content", messageContent)
-  // let testMessage = {
-  //   channel: `${process.env.REACT_APP_SLACK_CHANNEL_ID}`,
-  //   text: `${messageContent}`,
-  // };
 
-  // function sendSlackbotStartMsg(messageData) {
-  //   console.log(process.env.REACT_APP_INCOMING_WEBHOOK_URL)
-  //   fetch(`${process.env.REACT_APP_INCOMING_WEBHOOK_URL}`, {
-  //     method: "POST",
-  //     headers: {
-  //       "content-type": "application/json",
-  //       Authorization: "Bearer " + process.env.REACT_APP_BOT_USER_OAUTH_TOKEN,
-  //     },
-  //     body: JSON.stringify(messageData),
-  //   })
-  //     .then((response) => {
-  //       if (!response.ok) throw new Error(response.status);
-  //       return response;
-  //     })
-  //     .then((res) => console.log(res.status, res.statusText))
-  //     .catch((error) => console.error(error));
-  // }
-
-  // function sendSlackbotStartMsg(messageData) {
-  //   fetch(`/api/slack`, {
-  //     method: "POST",
-  //     headers: {
-  //       "content-type": "application/json",
-  //       Authorization: "Bearer " + process.env.REACT_APP_BOT_USER_OAUTH_TOKEN,
-  //     },
-  //     body: JSON.stringify(messageData),
-  //   })
-  //     .then((response) => {
-  //       if (!response.ok) throw new Error(response.status);
-  //       return response;
-  //     })
-  //     .then((res) => console.log(res.status, res.statusText))
-  //     .catch((error) => console.error(error));
-  // }
 
   function handleSubmit(event) {
     // const message = event.target.message.value;
