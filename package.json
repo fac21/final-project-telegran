@@ -13,12 +13,13 @@
     "styled-components": "^5.3.0"
   },
   "scripts": {
-    "start": "react-scripts start",
+    "start": "run-p server react-start",
+    "react-start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "server": "node-env-run server --exec nodemon | pino-colada",
-    "dev": "run-p server start"
+    "dev": "run-p server react-start"
   },
   "proxy": "http://localhost:3001",
   "eslintConfig": {
