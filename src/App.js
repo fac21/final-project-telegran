@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component } from "react";
 import logo from "./logo.png";
 
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
@@ -13,12 +13,13 @@ import Messages from "./components/Messages.jsx";
 import Speak from "./components/Speak.jsx";
 import Write from "./components/Write.jsx";
 import Emergency from "./components/Emergency.jsx";
+import ReceivedMessage from "./components/ReceivedMessage.jsx";
 
 function App() {
   const [messageContent, setMessageContent] = React.useState("");
-  
+
   return (
-     <div className="App">
+    <div className="App">
       <Router>
         <Switch>
           <Route path="/" exact component={() => <Home />} />
@@ -32,6 +33,7 @@ function App() {
           <Route path="/tutorial" exact component={() => <Tutorial />} />
           <Route path="/welcome" exact component={() => <Welcome />} />
           <Route path="/messages" exact component={() => <Messages />} />
+          <Route path="/message1" exact component={() => <ReceivedMessage />} />
           <Route path="/speak" exact component={() => <Speak />} />
           <Route
             path="/write"
@@ -51,4 +53,3 @@ function App() {
 }
 
 export default App;
-

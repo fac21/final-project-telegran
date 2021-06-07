@@ -7,4 +7,10 @@ export const NavContainer = styled.div`
   margin-top: 2rem;
   bottom: 0;
   position: fixed;
+
+  * {
+    width: auto;
+    height: 2rem;
+    background-color: red;
+  }
 `;
