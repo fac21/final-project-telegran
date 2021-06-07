@@ -73,38 +73,18 @@ const client = new WebClient(`${process.env.BOT_USER_OAUTH_TOKEN}`);
 
 //Fetching messages from Slack
 app.get("/api/read-messages", (req, res) => {
-  let conversationHistory;
+  console.log("Can you see me");
   let channelId = `${process.env.SLACK_CHANNEL_ID}`;
 
-  fetch(
-    client.conversations.history({
+  client.conversations
+    .history({
       channel: channelId,
     })
-  )
     .then((result) => {
-      conversationHistory = result.messages;
-      console.log(
-        conversationHistory.length + " messages found in " + channelId
-      );
+      console.log(result.messages[0]);
+      console.log(result.messages[1]);
     })
-    .catch((error) => console.error("oops", error));
-
-  res.redirect("/messages");
+    .catch((error) => {
+      console.log("This is an error");
+    });
 });
-
-//   fetch(`${process.env.INCOMING_WEBHOOK_URL}`, {
-//     method: "GET",
-//     headers: {
-//       "content-type": "application/json",
-//       Authorization: "Bearer " + process.env.BOT_USER_OAUTH_TOKEN,
-//     },
-//     body: JSON.stringify(messageData),
-//   })
-//     .then((response) => {
-//       if (!response.ok) throw new Error(response.status);
-//       return response;
-//     })
-//     .then((res) => console.log(res.status, res.statusText))
-//     .catch((error) => console.error(error));
-//   res.redirect("/messages");
-// });
