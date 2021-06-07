@@ -2,6 +2,9 @@ import React from "react";
 import { Link, withRouter } from "react-router-dom";
 import Nav from "./Navbar.jsx";
 import ReceivedMessage from "./ReceivedMessage.jsx";
+import { StyledMessage } from "./Message.style";
+import { AppContainer } from "./Container.style";
+// import Avatar from "../images/profile.svg";
 
 function Messages() {
   // const [messageData, setMessageData] = React.useState(fakeData);
@@ -24,21 +27,25 @@ function Messages() {
   const fakeMessages = fakeData.map((fakeMsg, index) => {
     console.log(fakeMsg, index);
     return (
-      <ReceivedMessage
-        key={index}
-        messageName={fakeData.map((msg) => msg.name)[index]}
-        messageTime={fakeData.map((msg) => msg.timestamp)[index]}
-        messageContent={fakeData.map((msg) => msg.messageContent)[index]}
-        // setMessageData={setMessageData}
-      />
+      <StyledMessage>
+        <ReceivedMessage
+          key={index}
+          // messageAvatar={fakeData.map((msg) => msg.avatar)[index]}
+          messageName={fakeData.map((msg) => msg.name)[index]}
+          messageTime={fakeData.map((msg) => msg.timestamp)[index]}
+          messageContent={fakeData.map((msg) => msg.messageContent)[index]}
+          // setMessageData={setMessageData}
+        />
+      </StyledMessage>
     );
   });
 
   return (
-    <>
+    <AppContainer>
       <div>{fakeMessages}</div>
+      <Link to="/message1">Read message</Link>
       <Nav />
-    </>
+    </AppContainer>
   );
 }
 

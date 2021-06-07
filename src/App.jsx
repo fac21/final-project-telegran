@@ -32,6 +32,7 @@ function App() {
           <Route path="/tutorial" exact component={() => <Tutorial />} />
           <Route path="/welcome" exact component={() => <Welcome />} />
           <Route path="/messages" exact component={() => <Messages />} />
+          <Route path="/message1" exact component={() => <ReceivedMessage />} />
           <Route path="/speak" exact component={() => <Speak />} />
           <Route
             path="/write"
