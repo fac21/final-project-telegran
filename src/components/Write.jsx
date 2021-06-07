@@ -10,61 +10,22 @@ const fetch = require("node-fetch");
 
 function Write() {
   const [messageContent, setMessageContent] = React.useState("");
-  console.log("message content", messageContent)
-  // let testMessage = {
-  //   channel: `${process.env.REACT_APP_SLACK_CHANNEL_ID}`,
-  //   text: `${messageContent}`,
-  // };
-
-  // function sendSlackbotStartMsg(messageData) {
-  //   console.log(process.env.REACT_APP_INCOMING_WEBHOOK_URL)
-  //   fetch(`${process.env.REACT_APP_INCOMING_WEBHOOK_URL}`, {
-  //     method: "POST",
-  //     headers: {
-  //       "content-type": "application/json",
-  //       Authorization: "Bearer " + process.env.REACT_APP_BOT_USER_OAUTH_TOKEN,
-  //     },
-  //     body: JSON.stringify(messageData),
-  //   })
-  //     .then((response) => {
-  //       if (!response.ok) throw new Error(response.status);
-  //       return response;
-  //     })
-  //     .then((res) => console.log(res.status, res.statusText))
-  //     .catch((error) => console.error(error));
-  // }
-
-  // function sendSlackbotStartMsg(messageData) {
-  //   fetch(`/api/slack`, {
-  //     method: "POST",
-  //     headers: {
-  //       "content-type": "application/json",
-  //       Authorization: "Bearer " + process.env.REACT_APP_BOT_USER_OAUTH_TOKEN,
-  //     },
-  //     body: JSON.stringify(messageData),
-  //   })
-  //     .then((response) => {
-  //       if (!response.ok) throw new Error(response.status);
-  //       return response;
-  //     })
-  //     .then((res) => console.log(res.status, res.statusText))
-  //     .catch((error) => console.error(error));
-  // }
+  console.log("message content", messageContent);
 
   function handleSubmit(event) {
     // const message = event.target.message.value;
     const message = messageContent;
-    console.log("message", message)
+    console.log("message", message);
     // const message= "hi this is gran"
     event.preventDefault();
-    fetch('/api/slack', {
+    fetch("/api/slack", {
       method: "POST",
       body: JSON.stringify({ message }),
-    headers: { "content-type": "application/json" },
-  })
-      .then(response => {
-        console.log("response", response)
-        response.json()
+      headers: { "content-type": "application/json" },
+    })
+      .then((response) => {
+        console.log("response", response);
+        response.json();
         // console.log('response.json()', response.json())
       })
       .catch((error) => console.error("Oops!", error));
@@ -80,10 +41,17 @@ function Write() {
           To: Jo
           <img className="avatar" src={profile}></img>
         </div>
-         <form onSubmit={handleSubmit} onChange={(event) => setMessageContent(event.target.value)}>
-            <textarea id="text" name="text" placeholder="Start typing..."></textarea>
-            <button type="submit">Submit</button>
-          </form>
+        <form
+          onSubmit={handleSubmit}
+          onChange={(event) => setMessageContent(event.target.value)}
+        >
+          <textarea
+            id="text"
+            name="text"
+            placeholder="Start typing..."
+          ></textarea>
+          <button type="submit">Submit</button>
+        </form>
         {/* <form action="/api/slack" method="POST" onChange={(event) => setMessageContent(event.target.value)}>
           <textarea placeholder="Start typing..."></textarea>
           <button type="button" onClick={handleSubmit}>Send</button>
@@ -92,7 +60,7 @@ function Write() {
             Send
           </a> */}
 
-          {/* <button
+        {/* <button
             type="submit"
             onClick={() => {
               console.log("works");
@@ -114,6 +82,5 @@ function Write() {
 }
 
 export default Write;
-
 
 //  <form action="post-review" method="POST"

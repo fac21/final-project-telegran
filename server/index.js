@@ -1,37 +1,44 @@
 const { response } = require("express");
 const send = require('../api/sendToSlack');
-// const dotenv = require("dotenv");
-// const path = require("path");
-const bodyParser = require('body-parser');
-const pino = require('express-pino-logger')();
+const bodyParser = require("body-parser");
+const pino = require("express-pino-logger")();
 const express = require("express");
 const PORT = process.env.PORT || 3001;
 const app = express();
-
-// dotenv.config();
-
-// app.use(express.static(path.resolve(__dirname, "../client/build")));
-
-// app.get("/slack", (request, response) => {
-//   response.json({ message: "Hello from server!" });
-// });
-
-// app.get("*", (request, response) => {
-//   response.sendFile(path.resolve(__dirname, "../client/build", "index.html"));
-// });
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(pino);
 app.use(express.json());
 
-app.post('/api/slack', (req, res) => {
+app.post("/api/slack", (req, res) => {
   const message = {
     channel: `${process.env.SLACK_CHANNEL_ID}`,
     text: `${req.body.message}`,
   };
-  // console.log("message", message);
   send.sendSlackbotStartMsg(message);
   res.redirect("/success");
+});
+
+const { WebClient, LogLevel } = require("@slack/web-api");
+
+const client = new WebClient(`${process.env.BOT_USER_OAUTH_TOKEN}`);
+
+//Fetching messages from Slack
+app.get("/api/read-messages", (req, res) => {
+  console.log("Can you see me");
+  let channelId = `${process.env.SLACK_CHANNEL_ID}`;
+
+  client.conversations
+    .history({
+      channel: channelId,
+    })
+    .then((result) => {
+      console.log(result.messages[0]);
+      console.log(result.messages[1]);
+    })
+    .catch((error) => {
+      console.log("This is an error");
+    });
 });
 
 app.listen(PORT, () => {
@@ -46,3 +53,4 @@ app.listen(PORT, () => {
       text: "The server has started running!"
     });
 });
+

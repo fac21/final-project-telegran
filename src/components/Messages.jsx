@@ -6,10 +6,19 @@ import { StyledMessage } from "./Message.style";
 import { AppContainer } from "./Container.style";
 import { NavContainer } from "./Nav.style";
 // import Avatar from "../images/profile.svg";
+const fetch = require("node-fetch");
 
 function Messages() {
-  // const [messageData, setMessageData] = React.useState(fakeData);
-
+  //Receive message from slack then store in database so we can retrieve anytime
+  function retrievedMessages(event) {
+    fetch("/api/read-messages", {})
+      .then((response) => {
+        console.log("response", response);
+        return response.json();
+      })
+      .catch((error) => console.error("Oops message not received!", error));
+  }
+  
   const fakeData = [
     {
       name: "Nafisa",
@@ -45,10 +54,12 @@ function Messages() {
     <AppContainer>
       <div>{fakeMessages}</div>
       <Link to="/message1">Read message</Link>
+    <button onClick={retrievedMessages}>Button</button>
       <NavContainer>
         <Nav />
       </NavContainer>
     </AppContainer>
+
   );
 }
 
