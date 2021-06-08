@@ -43,28 +43,33 @@ function Emergency() {
 
   console.log(timer);
   return (
-    <EmergencyContainer>
-      <div className="sos-page">
-        <p> Sending </p>
-        <img src={sos} />
-        <p>
-          {" "}
-          in
-          <span> {timer} </span>
-          seconds{" "}
-        </p>
-        <img src={cancel} alt="logo" />
-        <button type="submit">
-          {" "}
-          <Link to="/welcome" className="text-link" onClick={stopTimer}>
-            Cancel SOS Call
-          </Link>
-        </button>
-      </div>
+    <div>
+      <EmergencyContainer>
+        <div className="sos-page">
+          <p> Sending </p>
+          <img src={sos} />
+          <p>
+            {" "}
+            in
+            <span> {timer} </span>
+            seconds{" "}
+          </p>
+          <img src={cancel} alt="logo" />
+          <div>
+            <button type="submit">
+              {" "}
+              <Link to="/welcome" className="text-link" onClick={stopTimer}>
+                Cancel SOS Call
+              </Link>
+            </button>
+          </div>
+        </div>
+      </EmergencyContainer>
+
       <NavContainer>
         <Nav />
       </NavContainer>
-    </EmergencyContainer>
+    </div>
   );
 }
 

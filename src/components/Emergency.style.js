@@ -7,9 +7,12 @@ export const EmergencyContainer = styled.div`
   background-color: #ff5c5c;
   display: flex;
   flex-direction: column;
+  text-align: center;
   justify-content: center;
   align-items: center;
   color: #ffffff;
+  font-size: 2rem;
+  font-weight: 700;
 `;
 
 export const CancelCross = styled.div`
