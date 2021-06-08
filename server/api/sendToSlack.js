@@ -1,7 +1,6 @@
 const fetch = require("node-fetch");
 
 function sendSlackbotStartMsg(messageData) {
-  console.log("Working?", process.env.INCOMING_WEBHOOK_URL);
   fetch(`${process.env.INCOMING_WEBHOOK_URL}`, {
     method: "POST",
     headers: {

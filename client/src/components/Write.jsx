@@ -18,6 +18,7 @@ function Write() {
     console.log("message", message);
     // const message= "hi this is gran"
     event.preventDefault();
+    console.log("button has been pressed")
     fetch("/api/slack", {
       method: "POST",
       body: JSON.stringify({ message }),

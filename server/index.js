@@ -7,13 +7,7 @@ const PORT = process.env.PORT || 3001;
 const app = express();
 const dotenv = require("dotenv");
 
-const result = dotenv.config();
-
-if (result.error) {
-  throw result.error;
-}
-
-console.log(result.parsed);
+dotenv.config();
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(pino);
