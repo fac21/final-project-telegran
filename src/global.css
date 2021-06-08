@@ -6,3 +6,8 @@
 .icon {
   width: 2rem;
 }
+
+.text-link {
+  text-decoration: none;
+  color: black;
+}

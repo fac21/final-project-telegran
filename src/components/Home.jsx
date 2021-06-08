@@ -14,7 +14,9 @@ function Home() {
 
       <Button type="submit">
         {" "}
-        <Link to="/connect">Get Started</Link>
+        <Link to="/connect" className="text-link">
+          Get Started
+        </Link>
       </Button>
     </AppContainer>
   );

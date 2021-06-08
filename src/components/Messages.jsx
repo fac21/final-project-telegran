@@ -9,16 +9,15 @@ import { NavContainer } from "./Nav.style";
 const fetch = require("node-fetch");
 
 function Messages() {
-
-  const [messageData, setMessageData] = React.useState([])
+  const [messageData, setMessageData] = React.useState([]);
 
   React.useEffect(() => {
     fetch("/api/read-messages", {})
       .then((response) => response.json())
       .then((data) => setMessageData(data))
       .catch((error) => console.error("Oops message not received!", error));
-  }, [])
-  
+  }, []);
+
   // const fakeData = [
   //   {
   //     name: "Nafisa",
@@ -34,15 +33,32 @@ function Messages() {
 
   // const NUM_OF_MESSAGES = 4;
 
+  function messageName() {
+    let names = [
+      "Chisha",
+      "Chun",
+      "Jo",
+      "Nafisa",
+      "Chisha",
+      "Chun",
+      "Jo",
+      "Nafisa",
+      "Chisha",
+      "Chun",
+    ];
+    let index = Math.floor(Math.random() * 10);
+    return names[index];
+  }
+
   const slackMessages = messageData.map((msg, index) => {
-    console.log(msg)
+    console.log(msg);
     return (
       <StyledMessage>
         {/* <div>{messageData}</div> */}
         <ReceivedMessage
           key={index}
           // messageAvatar={messageData.map((msg) => msg.avatar)[index]}
-          messageName="Fake name"
+          messageName={messageName()}
           messageTime="01/01/2021"
           messageContent={messageData.map((msg) => msg.text)[index]}
           // setMessageData={setMessageData}
@@ -55,12 +71,11 @@ function Messages() {
     <AppContainer>
       <div>{slackMessages}</div>
       <Link to="/message1">Read message</Link>
-    {/* <button onClick={retrievedMessages}>Button</button> */}
+      {/* <button onClick={retrievedMessages}>Button</button> */}
       <NavContainer>
         <Nav />
       </NavContainer>
     </AppContainer>
-
   );
 }
 

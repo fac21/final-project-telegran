@@ -32,15 +32,15 @@ import { Link, withRouter } from "react-router-dom";
 function Navbar(props) {
   return (
     <div className="nav">
-      <Link to="/messages">
+      <Link to="/messages" className="text-link">
         <img src={envelope} alt="envelope" className="icon"></img>
         <div>Messages</div>
       </Link>
-      <Link to="/write">
+      <Link to="/write" className="text-link">
         <img src={write} alt="write" className="icon"></img>
         <div>Write</div>
       </Link>
-      <Link to="/emergency">
+      <Link to="/emergency" className="text-link">
         <img src={sos} alt="emergency" className="icon"></img>
         <div>Emergency</div>
       </Link>
@@ -49,4 +49,3 @@ function Navbar(props) {
 }
 
 export default Navbar;
-
