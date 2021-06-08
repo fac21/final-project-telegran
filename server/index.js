@@ -11,7 +11,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(pino);
 app.use(express.json());
 
-app.post("/api/slack", (req, res) => {
+app.post("/api/write-message", (req, res) => {
   const message = {
     channel: `${process.env.SLACK_CHANNEL_ID}`,
     text: `${req.body.message}`,
@@ -20,23 +20,14 @@ app.post("/api/slack", (req, res) => {
   res.redirect("/success");
 });
 
-//Fetching messages from Slack
+//Fetch messages from Slack
 app.get("/api/read-messages", async (req, res) => {
-  console.log("Can you see me");
   try {
-    console.log("trying!")
     const response = await receive.getMessagesFromSlack()
-    console.log("response in index", response)
     res.send(response);
   } catch (e) {
-    console.log("caught an error in index.js")
     res.status(400).send();
   }
-  // let lastTenMsgs = receive.getMessagesFromSlack();
-  
-  // console.log("in index", lastTenMsgs)
-  // res.send(lastTenMsgs);
-  // res.redirect("/success");
 })
 
 app.listen(PORT, () => {

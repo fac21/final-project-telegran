@@ -10,23 +10,17 @@ const fetch = require("node-fetch");
 
 function Write() {
   const [messageContent, setMessageContent] = React.useState("");
-  console.log("message content", messageContent);
 
   function handleSubmit(event) {
-    // const message = event.target.message.value;
     const message = messageContent;
-    console.log("message", message);
-    // const message= "hi this is gran"
     event.preventDefault();
-    fetch("/api/slack", {
+    fetch("/api/write-message", {
       method: "POST",
       body: JSON.stringify({ message }),
       headers: { "content-type": "application/json" },
     })
       .then((response) => {
-        console.log("response", response);
         response.json();
-        // console.log('response.json()', response.json())
       })
       .catch((error) => console.error("Oops!", error));
   }
