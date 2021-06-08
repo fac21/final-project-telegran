@@ -35,6 +35,7 @@ function App() {
           <Route path="/messages" exact component={() => <Messages />} />
           <Route path="/message1" exact component={() => <ReceivedMessage />} />
           <Route path="/speak" exact component={() => <Speak />} />
+          <Route path="/success" exact component={() => <Success />} />
           <Route
             path="/write"
             exact

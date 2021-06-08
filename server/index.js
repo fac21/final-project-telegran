@@ -23,19 +23,27 @@ app.post("/api/slack", (req, res) => {
 //Fetching messages from Slack
 app.get("/api/read-messages", (req, res) => {
   console.log("Can you see me");
-  receive.getMessagesFromSlack();
-});
+  try {
+    console.log("trying!")
+    const response = receive.getMessagesFromSlack()
+    res.send(response);
+  } catch (e) {
+    console.log("caught an error in index.js")
+    res.status(400).send();
+  }
+  // let lastTenMsgs = receive.getMessagesFromSlack();
+  
+  // console.log("in index", lastTenMsgs)
+  // res.send(lastTenMsgs);
+  // res.redirect("/success");
+})
 
 app.listen(PORT, () => {
   console.log(`Express server is running on http://localhost:${PORT}`);
-  let testMessage = {
-    channel: `${process.env.SLACK_CHANNEL_ID}`,
-    text: "The server has started running!",
-  };
-  send.sendSlackbotStartMsg(
-    {
-      channel: `${process.env.SLACK_CHANNEL_ID}`,
-      text: "The server has started running!"
-    });
+  // send.sendSlackbotStartMsg(
+  //   {
+  //     channel: `${process.env.SLACK_CHANNEL_ID}`,
+  //     text: "The server has started running!"
+  //   });
 });
 

@@ -16,12 +16,12 @@ function Emergency() {
       if (timer > 0) {
         setTimer(timer - 1);
       } else {
-        displaySOS();
+        sendSOS();
       }
     }, 1000);
   });
 
-  function displaySOS() {
+  function sendSOS() {
     // const message = event.target.message.value;
     const message = "SOS: Please call me";
     fetch("/api/slack", {
