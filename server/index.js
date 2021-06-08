@@ -1,10 +1,19 @@
 const { response } = require("express");
-const send = require('./api/sendToSlack');
+const send = require("./api/sendToSlack");
 const bodyParser = require("body-parser");
 const pino = require("express-pino-logger")();
 const express = require("express");
 const PORT = process.env.PORT || 3001;
 const app = express();
+const dotenv = require("dotenv");
+
+const result = dotenv.config();
+
+if (result.error) {
+  throw result.error;
+}
+
+console.log(result.parsed);
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(pino);
@@ -47,10 +56,8 @@ app.listen(PORT, () => {
     channel: `${process.env.SLACK_CHANNEL_ID}`,
     text: "The server has started running!",
   };
-  send.sendSlackbotStartMsg(
-    {
-      channel: `${process.env.SLACK_CHANNEL_ID}`,
-      text: "The server has started running!"
-    });
+  send.sendSlackbotStartMsg({
+    channel: `${process.env.SLACK_CHANNEL_ID}`,
+    text: "The server has started running!",
+  });
 });
-
