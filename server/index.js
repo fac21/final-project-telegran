@@ -1,5 +1,5 @@
 const { response } = require("express");
-const send = require('../api/sendToSlack');
+const send = require('./api/sendToSlack');
 const bodyParser = require("body-parser");
 const pino = require("express-pino-logger")();
 const express = require("express");
