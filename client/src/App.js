@@ -1,9 +1,7 @@
 import React, { Component } from "react";
-import logo from "./logo.png";
-
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+
 import Home from "./components/Home.jsx";
-import Navbar from "./components/Navbar";
 import Connect from "./components/Connect.jsx";
 import Video from "./components/Video.jsx";
 import Tutorial from "./components/Tutorial.jsx";
