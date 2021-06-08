@@ -13,7 +13,7 @@ function Messages() {
   function retrievedMessages(event) {
     fetch("/api/read-messages", {})
       .then((response) => {
-        console.log("response", response);
+        console.log("response in messages", response.json());
         return response.json();
       })
       .catch((error) => console.error("Oops message not received!", error));

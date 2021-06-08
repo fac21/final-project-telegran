@@ -21,11 +21,12 @@ app.post("/api/slack", (req, res) => {
 });
 
 //Fetching messages from Slack
-app.get("/api/read-messages", (req, res) => {
+app.get("/api/read-messages", async (req, res) => {
   console.log("Can you see me");
   try {
     console.log("trying!")
-    const response = receive.getMessagesFromSlack()
+    const response = await receive.getMessagesFromSlack()
+    console.log("response in index", response)
     res.send(response);
   } catch (e) {
     console.log("caught an error in index.js")
