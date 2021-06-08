@@ -44,7 +44,9 @@ function Write() {
             name="text"
             placeholder="Start typing..."
           ></textarea>
-          <button type="submit">Submit</button>
+          <button type="submit">
+            <Link to="/message-sent">Submit</Link>
+          </button>
         </form>
         {/* <form action="/api/slack" method="POST" onChange={(event) => setMessageContent(event.target.value)}>
           <textarea placeholder="Start typing..."></textarea>
