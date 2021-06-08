@@ -4,6 +4,7 @@ import Nav from "./Navbar.jsx";
 import voice from "../images/voice.svg";
 import send from "../images/send.svg";
 import profile from "../images/profile.svg";
+import { NavContainer } from "./Nav.style.jsx";
 const fetch = require("node-fetch");
 // const dotenv = require("dotenv");
 // dotenv.config();
@@ -28,7 +29,9 @@ function Write() {
   return (
     <>
       <button>
-        <a href="/messages">Go back</a>
+        <a href="/messages" className="text-link">
+          Go back
+        </a>
       </button>
       <div className="messageContainer">
         <div className="messageTo">
@@ -72,7 +75,9 @@ function Write() {
           </a>
         </div>
       </div>
-      <Nav />
+      <NavContainer>
+        <Nav />
+      </NavContainer>
     </>
   );
 }

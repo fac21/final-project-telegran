@@ -17,7 +17,9 @@ function Connect() {
       </form>
       <button type="submit">
         {" "}
-        <Link to="/connection-success">Connect</Link>
+        <Link to="/connection-success" className="text-link">
+          Connect
+        </Link>
       </button>
     </AppContainer>
   );

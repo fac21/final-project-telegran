@@ -56,7 +56,7 @@ function Emergency() {
         <img src={cancel} alt="logo" />
         <button type="submit">
           {" "}
-          <Link to="/welcome" onClick={stopTimer}>
+          <Link to="/welcome" className="text-link" onClick={stopTimer}>
             Cancel SOS Call
           </Link>
         </button>

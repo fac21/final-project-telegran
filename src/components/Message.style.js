@@ -12,6 +12,7 @@ export const MessagesListContainer = styled.div`
 
 export const StyledMessage = styled.div`
   .parent {
+    padding-right: 1rem;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: repeat(2, 1fr);
