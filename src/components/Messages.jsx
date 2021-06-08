@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Link, withRouter } from "react-router-dom";
 import Nav from "./Navbar.jsx";
 import ReceivedMessage from "./ReceivedMessage.jsx";
@@ -9,41 +9,42 @@ import { NavContainer } from "./Nav.style";
 const fetch = require("node-fetch");
 
 function Messages() {
-  //Receive message from slack then store in database so we can retrieve anytime
-  function retrievedMessages(event) {
+
+  const [messageData, setMessageData] = React.useState([])
+
+  React.useEffect(() => {
     fetch("/api/read-messages", {})
-      .then((response) => {
-        console.log("response", response);
-        return response.json();
-      })
+      .then((response) => response.json())
+      .then((data) => setMessageData(data))
       .catch((error) => console.error("Oops message not received!", error));
-  }
+  }, [])
   
-  const fakeData = [
-    {
-      name: "Nafisa",
-      timestamp: "07/06/2021, 11.00am",
-      messageContent: "Hi gran how are you",
-    },
-    {
-      name: "Chisha",
-      timestamp: "06/06/2021, 10.00am",
-      messageContent: "Love u grandad",
-    },
-  ];
+  // const fakeData = [
+  //   {
+  //     name: "Nafisa",
+  //     timestamp: "07/06/2021, 11.00am",
+  //     messageContent: "Hi gran how are you",
+  //   },
+  //   {
+  //     name: "Chisha",
+  //     timestamp: "06/06/2021, 10.00am",
+  //     messageContent: "Love u grandad",
+  //   },
+  // ];
 
-  const NUM_OF_MESSAGES = 4;
+  // const NUM_OF_MESSAGES = 4;
 
-  const fakeMessages = fakeData.map((fakeMsg, index) => {
-    console.log(fakeMsg, index);
+  const slackMessages = messageData.map((msg, index) => {
+    console.log(msg)
     return (
       <StyledMessage>
+        {/* <div>{messageData}</div> */}
         <ReceivedMessage
           key={index}
-          // messageAvatar={fakeData.map((msg) => msg.avatar)[index]}
-          messageName={fakeData.map((msg) => msg.name)[index]}
-          messageTime={fakeData.map((msg) => msg.timestamp)[index]}
-          messageContent={fakeData.map((msg) => msg.messageContent)[index]}
+          // messageAvatar={messageData.map((msg) => msg.avatar)[index]}
+          messageName="Fake name"
+          messageTime="01/01/2021"
+          messageContent={messageData.map((msg) => msg.text)[index]}
           // setMessageData={setMessageData}
         />
       </StyledMessage>
@@ -52,9 +53,9 @@ function Messages() {
 
   return (
     <AppContainer>
-      <div>{fakeMessages}</div>
+      <div>{slackMessages}</div>
       <Link to="/message1">Read message</Link>
-    <button onClick={retrievedMessages}>Button</button>
+    {/* <button onClick={retrievedMessages}>Button</button> */}
       <NavContainer>
         <Nav />
       </NavContainer>
