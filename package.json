@@ -4,6 +4,7 @@
   "private": true,
   "dependencies": {
     "@slack/web-api": "^6.2.4",
+    "cypress": "^7.5.0",
     "node-fetch": "^2.6.1",
     "react": "^16.14.0",
     "react-dom": "^16.13.0",
@@ -20,7 +21,8 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "server": "node-env-run server --exec nodemon | pino-colada",
-    "dev": "run-p server react-start"
+    "dev": "run-p server react-start",
+    "cypress": "cypress open"
   },
   "proxy": "http://127.0.0.1:3001",
   "eslintConfig": {
