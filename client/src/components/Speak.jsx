@@ -3,6 +3,7 @@ import { Link, withRouter } from "react-router-dom";
 import Nav from "./Navbar.jsx";
 import microphone from "../images/microphone.svg";
 import write from "../images/write.svg";
+import { AppContainer } from "./Container.style";
 
 import SpeechRecognition, {
   useSpeechRecognition,
@@ -12,9 +13,7 @@ function Speak() {
   const { transcript, resetTranscript } = useSpeechRecognition();
 
   if (!SpeechRecognition.browserSupportsSpeechRecognition()) {
-    return (
-      <h1>Your browser does not support Speech recognition. </h1>
-    );
+    return <h1>Your browser does not support Speech recognition. </h1>;
   }
 
   // const [recording, setRecording] = React.useState(false);
@@ -22,7 +21,7 @@ function Speak() {
     // setRecording(!recording);
   }
   return (
-    <div>
+    <AppContainer>
       <p>Go back</p>
       <p>To: </p>
       <div className="spokenWords">
@@ -51,7 +50,7 @@ function Speak() {
       </Link>
       <button id="send">Send</button>
       <Nav />;
-    </div>
+    </AppContainer>
   );
 }
 

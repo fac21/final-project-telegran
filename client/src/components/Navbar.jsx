@@ -37,7 +37,7 @@ function Navbar(props) {
         <div>Messages</div>
       </Link>
       <Link to="/write" className="text-link">
-        <img src={write} alt="write" className="icon"></img>
+        <img width="100%" src={write} alt="write" className="icon"></img>
         <div>Write</div>
       </Link>
       <Link to="/emergency" className="text-link">

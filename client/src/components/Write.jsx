@@ -6,9 +6,13 @@ import send from "../images/send.svg";
 import profile from "../images/profile.svg";
 import { NavContainer } from "./Nav.style.jsx";
 import { AppContainer } from "./Container.style";
+import {
+  MessageContainer,
+  MessageTop,
+  MessageText,
+  MessageButtons,
+} from "./MessageContainer.style.jsx";
 const fetch = require("node-fetch");
-// const dotenv = require("dotenv");
-// dotenv.config();
 
 function Write() {
   const [messageContent, setMessageContent] = React.useState("");
@@ -35,48 +39,42 @@ function Write() {
         </a>
       </button>
       <AppContainer>
-        <div className="messageContainer">
-          <div className="messageTo">
-            To: Jo
-            <img className="avatar" src={profile}></img>
-          </div>
-          <form
-            onSubmit={handleSubmit}
-            onChange={(event) => setMessageContent(event.target.value)}
-          >
-            <textarea
-              id="text"
-              name="text"
-              placeholder="Start typing..."
-            ></textarea>
-            <button type="submit">
-              <Link to="/message-sent">Submit</Link>
-            </button>
-          </form>
-          {/* <form action="/api/slack" method="POST" onChange={(event) => setMessageContent(event.target.value)}>
-          <textarea placeholder="Start typing..."></textarea>
-          <button type="button" onClick={handleSubmit}>Send</button>
-          <a href="/success">
-            <img src={send}></img>
-            Send
-          </a> */}
+        <MessageContainer>
+          <MessageTop>
+            <span>To:</span>
+            <span></span>
+            Jo<img className="avatar" src={profile}></img>
+          </MessageTop>
+          <MessageText>
+            <form
+              onSubmit={handleSubmit}
+              onChange={(event) => setMessageContent(event.target.value)}
+            >
+              <textarea
+                rows="15"
+                cols="50"
+                id="text"
+                name="text"
+                placeholder="Start typing..."
+              ></textarea>
+              <p>
+                <button type="submit">
+                  <Link to="/message-sent">Submit</Link>
+                </button>
+              </p>
+            </form>
+          </MessageText>
+          <MessageButtons>
+            <div className="msgButtons">
+              <a href="/speak">
+                {/* we should change this to be state based rather than page */}
+                <img src={voice}></img>
+                <span>Press here to speak your message</span>
+              </a>
+            </div>
+          </MessageButtons>
+        </MessageContainer>
 
-          {/* <button
-            type="submit"
-            onClick={() => {
-              console.log("works");
-              sendSlackbotStartMsg(testMessage);
-            }}
-          ></button> */}
-          {/* </form> */}
-          <div className="msgButtons">
-            <a href="/speak">
-              {/* we should change this to be state based rather than page */}
-              <img src={voice}></img>
-              <span>Press here to speak your message </span>
-            </a>
-          </div>
-        </div>
         <NavContainer>
           <Nav />
         </NavContainer>
