@@ -18,17 +18,17 @@ function Write() {
   const [messageContent, setMessageContent] = React.useState("");
 
   function handleSubmit(event) {
-    console.log("handle submit in write")
+    console.log("handle submit in write");
     const message = messageContent;
     event.preventDefault();
-    fetch("/api/write-message", {
+    fetch(`${REACT_APP_API_URL}/api/write-message`, {
       method: "POST",
       body: JSON.stringify({ message }),
       headers: { "content-type": "application/json" },
     })
       .then((response) => {
         response.json();
-        return <Redirect to="/message-sent"/>
+        return <Redirect to="/message-sent" />;
       })
       .catch((error) => console.error("Oops!", error));
   }
@@ -60,7 +60,7 @@ function Write() {
                 placeholder="Start typing..."
               ></textarea>
               <p>
-                <button type="submit">Submit</button>  
+                <button type="submit">Submit</button>
               </p>
             </form>
           </MessageText>

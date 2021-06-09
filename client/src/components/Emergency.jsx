@@ -1,5 +1,5 @@
 import React from "react";
-import cancel from '../images/cancelcross.svg';
+import cancel from "../images/cancelcross.svg";
 import { Link, withRouter } from "react-router-dom";
 import Nav from "./Navbar.jsx";
 import { NavContainer } from "./Nav.style";
@@ -24,7 +24,7 @@ function Emergency() {
   function sendSOS() {
     // const message = event.target.message.value;
     const message = "SOS: Please call me";
-    fetch("/api/write-message", {
+    fetch(`${REACT_APP_API_URL}/api/write-message`, {
       method: "POST",
       body: JSON.stringify({ message }),
       headers: { "content-type": "application/json" },
