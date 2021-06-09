@@ -16,3 +16,15 @@
 * {
   margin-top: 0;
 }
+
+.back-button {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.text-area {
+  font-size: 20pt;
+  
+  color: black;
+}
