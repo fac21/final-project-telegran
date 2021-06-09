@@ -16,10 +16,13 @@ import MessageSent from "./components/MessageSent.jsx";
 
 function App() {
   const [messageContent, setMessageContent] = React.useState("");
-
+  fetch("https://final-project-telegran.herokuapp.com/")
+    .then((res) => res.json())
+    .then((data) => console.log(data));
   return (
     <div className="App">
-      <Router>
+      <p>Client is working</p>
+      {/* <Router>
         <Switch>
           <Route path="/" exact component={() => <Home />} />
           <Route path="/connect" exact component={() => <Connect />} />
@@ -48,7 +51,7 @@ function App() {
           />
           <Route path="/emergency" exact component={() => <Emergency />} />
         </Switch>
-      </Router>
+      </Router> */}
     </div>
   );
 }
