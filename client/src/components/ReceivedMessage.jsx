@@ -7,6 +7,21 @@ import { NavContainer } from "./Nav.style";
 import { Button } from "./Button.style.js";
 
 function ReceivedMessage(props) {
+  const [emoji, setEmoji] = React.useState("");
+  function sendEmoji(event) {
+    event.preventDefault();
+    fetch("/api/write-message", {
+      method: "POST",
+      body: JSON.stringify({ emoji }),
+      headers: { "content-type": "application/json" },
+    })
+      .then((response) => {
+        response.json();
+        return <Redirect to="/message-sent" />;
+      })
+      .catch((error) => console.error("Oops!", error));
+  }
+
   return (
     <div>
       <Button className="back-button">
@@ -20,6 +35,7 @@ function ReceivedMessage(props) {
           <div className="time">{props.messageTime} </div>
           <div className="name">{props.messageName} </div>
           <div className="content">{props.messageContent} </div>
+          <button onClick={sendEmoji}>👍 </button>
         </div>
       </AppContainer>
       <NavContainer>
