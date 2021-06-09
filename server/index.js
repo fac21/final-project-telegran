@@ -1,6 +1,7 @@
 const { response } = require("express");
-const send = require('./api/sendToSlack');
-const receive = require('./api/receiveFromSlack');
+const send = require("./api/sendToSlack");
+const receive = require("./api/receiveFromSlack");
+const sendEmoji = require("./api/sendEmojiSlack");
 const bodyParser = require("body-parser");
 const pino = require("express-pino-logger")();
 const express = require("express");
@@ -24,15 +25,24 @@ app.post("/api/write-message", (req, res) => {
   res.redirect("/success");
 });
 
+app.post("/api/add-emoji", (req, res) => {
+  const emoji = {
+    channel: `${process.env.SLACK_CHANNEL_ID}`,
+    name: `thumbsup`,
+  };
+  sendEmoji.sendEmojiSlack(emoji);
+  res.redirect("/success");
+});
+
 //Fetch messages from Slack
 app.get("/api/read-messages", async (req, res) => {
   try {
-    const response = await receive.getMessagesFromSlack()
+    const response = await receive.getMessagesFromSlack();
     res.send(response);
   } catch (e) {
     res.status(400).send();
   }
-})
+});
 
 app.listen(PORT, () => {
   console.log(`Express server is running on http://localhost:${PORT}`);
