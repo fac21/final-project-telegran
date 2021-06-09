@@ -16,5 +16,8 @@
   "bugs": {
     "url": "https://github.com/fac21/final-project-telegran/issues"
   },
-  "homepage": "https://github.com/fac21/final-project-telegran#readme"
+  "homepage": "https://github.com/fac21/final-project-telegran#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
 }
