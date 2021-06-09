@@ -1,5 +1,5 @@
 import React from "react";
-import cancel from "../images/cancelcross.svg";
+import cancel from '../images/cancelcross.svg';
 import { Link, withRouter } from "react-router-dom";
 import Nav from "./Navbar.jsx";
 import { NavContainer } from "./Nav.style";
