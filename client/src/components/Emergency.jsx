@@ -1,10 +1,11 @@
 import React from "react";
-import cancel from '../images/cancelcross.svg';
+import cancel from "../images/cancelcross.svg";
 import { Link, withRouter } from "react-router-dom";
 import Nav from "./Navbar.jsx";
 import { NavContainer } from "./Nav.style";
 import { EmergencyContainer } from "./Emergency.style";
 import sos from "../images/sos.svg";
+import { Button } from "./Button.style.js";
 const fetch = require("node-fetch");
 let timeout;
 
@@ -56,12 +57,12 @@ function Emergency() {
           </p>
           <img src={cancel} alt="logo" />
           <div>
-            <button type="submit">
+            <Button type="submit">
               {" "}
               <Link to="/welcome" className="text-link" onClick={stopTimer}>
                 Cancel SOS Call
               </Link>
-            </button>
+            </Button>
           </div>
         </div>
       </EmergencyContainer>

@@ -6,6 +6,7 @@ import send from "../images/send.svg";
 import profile from "../images/profile.svg";
 import { NavContainer } from "./Nav.style.jsx";
 import { AppContainer } from "./Container.style";
+import { Button } from "./Button.style.js";
 import {
   MessageContainer,
   MessageTop,
@@ -18,7 +19,7 @@ function Write() {
   const [messageContent, setMessageContent] = React.useState("");
 
   function handleSubmit(event) {
-    console.log("handle submit in write")
+    console.log("handle submit in write");
     const message = messageContent;
     event.preventDefault();
     fetch("/api/write-message", {
@@ -28,19 +29,19 @@ function Write() {
     })
       .then((response) => {
         response.json();
-        return <Redirect to="/message-sent"/>
+        return <Redirect to="/message-sent" />;
       })
       .catch((error) => console.error("Oops!", error));
   }
 
   return (
     <div>
-      <button>
-        <a href="/messages" className="text-link">
-          Go back
-        </a>
-      </button>
       <AppContainer>
+        <Button className="back-button">
+          <a href="/messages" className="text-link">
+            Go back
+          </a>
+        </Button>
         <MessageContainer>
           <MessageTop>
             <span>To:</span>
@@ -53,14 +54,15 @@ function Write() {
               onChange={(event) => setMessageContent(event.target.value)}
             >
               <textarea
-                rows="15"
-                cols="50"
+                rows="5"
+                cols="20"
                 id="text"
                 name="text"
                 placeholder="Start typing..."
+                className="text-area"
               ></textarea>
               <p>
-                <button type="submit">Submit</button>  
+                <Button type="submit">Send</Button>
               </p>
             </form>
           </MessageText>
