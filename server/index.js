@@ -1,6 +1,6 @@
 const { response } = require("express");
-const send = require('./api/sendToSlack');
-const receive = require('./api/receiveFromSlack');
+const send = require("./api/sendToSlack");
+const receive = require("./api/receiveFromSlack");
 const bodyParser = require("body-parser");
 const pino = require("express-pino-logger")();
 const express = require("express");
@@ -13,6 +13,10 @@ dotenv.config();
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(pino);
 app.use(express.json());
+
+app.get("/", (req, res) => {
+  res.send("Server is Running!");
+});
 
 app.post("/api/write-message", (req, res) => {
   console.log("in app.post write");
@@ -27,12 +31,12 @@ app.post("/api/write-message", (req, res) => {
 //Fetch messages from Slack
 app.get("/api/read-messages", async (req, res) => {
   try {
-    const response = await receive.getMessagesFromSlack()
+    const response = await receive.getMessagesFromSlack();
     res.send(response);
   } catch (e) {
     res.status(400).send();
   }
-})
+});
 
 app.listen(PORT, () => {
   console.log(`Express server is running on http://localhost:${PORT}`);
@@ -42,3 +46,5 @@ app.listen(PORT, () => {
   //     text: "The server has started running!"
   //   });
 });
+
+
