@@ -8,6 +8,12 @@
   width: 5rem;
 }
 
+.form {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+
 .text-link {
   text-decoration: none;
   color: black;
@@ -25,6 +31,6 @@
 
 .text-area {
   font-size: 20pt;
-  
+
   color: black;
 }

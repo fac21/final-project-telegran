@@ -50,6 +50,7 @@ function Write() {
           </MessageTop>
           <MessageText>
             <form
+              className="form"
               onSubmit={handleSubmit}
               onChange={(event) => setMessageContent(event.target.value)}
             >
@@ -61,9 +62,8 @@ function Write() {
                 placeholder="Start typing..."
                 className="text-area"
               ></textarea>
-              <p>
-                <Button type="submit">Send</Button>
-              </p>
+
+              <Button type="submit">Send</Button>
             </form>
           </MessageText>
           <MessageButtons>
