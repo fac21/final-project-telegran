@@ -15,6 +15,7 @@ app.use(pino);
 app.use(express.json());
 
 app.post("/api/write-message", (req, res) => {
+  console.log("in app.post write");
   const message = {
     channel: `${process.env.SLACK_CHANNEL_ID}`,
     text: `${req.body.message}`,

@@ -1,5 +1,5 @@
 import React from "react";
-import { Link, withRouter } from "react-router-dom";
+import { Redirect } from "react-router-dom";
 import Nav from "./Navbar.jsx";
 import voice from "../images/voice.svg";
 import send from "../images/send.svg";
@@ -18,6 +18,7 @@ function Write() {
   const [messageContent, setMessageContent] = React.useState("");
 
   function handleSubmit(event) {
+    console.log("handle submit in write")
     const message = messageContent;
     event.preventDefault();
     fetch("/api/write-message", {
@@ -27,6 +28,7 @@ function Write() {
     })
       .then((response) => {
         response.json();
+        return <Redirect to="/message-sent"/>
       })
       .catch((error) => console.error("Oops!", error));
   }
@@ -58,9 +60,7 @@ function Write() {
                 placeholder="Start typing..."
               ></textarea>
               <p>
-                <button type="submit">
-                  <Link to="/message-sent">Submit</Link>
-                </button>
+                <button type="submit">Submit</button>  
               </p>
             </form>
           </MessageText>
@@ -74,7 +74,6 @@ function Write() {
             </div>
           </MessageButtons>
         </MessageContainer>
-
         <NavContainer>
           <Nav />
         </NavContainer>
