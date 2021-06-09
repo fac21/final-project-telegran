@@ -15,7 +15,7 @@ import ReceivedMessage from "./components/ReceivedMessage.jsx";
 import MessageSent from "./components/MessageSent.jsx";
 
 function App() {
-  const [messageContent, setMessageContent] = React.useState("");
+  //const [messageContent, setMessageContent] = React.useState("");
   fetch("https://final-project-telegran.herokuapp.com/")
     .then((res) => res.json())
     .then((data) => console.log(data));
