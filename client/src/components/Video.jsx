@@ -16,7 +16,7 @@ function Video() {
           <source src="movie.mp4" type="video/mp4" />
         </video>
       </CenterContainer>
-      <div>
+      <div className="center">
         <Button type="submit">
           <Link to="/tutorial" className="text-link">
             Written Tutorial
