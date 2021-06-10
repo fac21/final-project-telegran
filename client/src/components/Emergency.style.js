@@ -13,6 +13,7 @@ export const EmergencyContainer = styled.div`
   color: #ffffff;
   font-size: 2rem;
   font-weight: 700;
+  padding-bottom: 5rem;
 `;
 
 export const CancelCross = styled.div`

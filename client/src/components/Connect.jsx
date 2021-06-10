@@ -11,7 +11,7 @@ function Connect() {
         <img src={logo} alt="logo" />
         {/* <p>{!data ? "Loading..." : data}</p> */}
       </header>
-      <h1>Connect to Slack Workspace</h1>
+      <p className="center">Connect to Slack Workspace</p>
       <form>
         <label>Workspace ID:</label>
         <input></input>

@@ -55,7 +55,7 @@ function Emergency() {
             <span> {timer} </span>
             seconds{" "}
           </p>
-          <img src={cancel} alt="logo" />
+          <a onClick={stopTimer}><img src={cancel} alt="logo" /></a>
           <div>
             <Button type="submit">
               {" "}

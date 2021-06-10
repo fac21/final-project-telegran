@@ -38,6 +38,10 @@
   left: 0;
 }
 
+.center {
+  text-align: center;
+}
+
 .text-area {
   height: 40vh;
   width: 80vw;
@@ -65,6 +69,15 @@
 .write-icon {
   margin: 0.5rem;
   width: 5rem;
+} */
+/* 
+.content {
+  height: 40vh;
+  width: 80vw;
+  font-size: 16pt;
+  color: black;
+  position: relative;
+  background-color: white;
 } */
 
 @media (min-width: 1025px) and (max-width: 1280px) {

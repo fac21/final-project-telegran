@@ -43,7 +43,9 @@ function Speak() {
   }
 
   function handleSubmit(event) {
+
     const message = transcript;
+
 
     event.preventDefault();
     fetch(`${process.env.REACT_APP_API_URL}/api/write-message`, {

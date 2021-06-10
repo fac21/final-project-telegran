@@ -10,7 +10,7 @@ function Success() {
   return (
     <AppContainer>
       <Confetti width={width} height={height} />
-      <h1>
+      <h1 className="center">
         {" "}
         <Link to="/video">Successfully Connected </Link>{" "}
       </h1>
