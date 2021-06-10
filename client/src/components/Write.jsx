@@ -21,7 +21,7 @@ function Write() {
     console.log("handle submit in write");
     const message = messageContent;
     event.preventDefault();
-    fetch(`${REACT_APP_API_URL}/api/write-message`, {
+    fetch(`${process.env.REACT_APP_API_URL}/api/write-message`, {
       method: "POST",
       body: JSON.stringify({ message }),
       headers: { "content-type": "application/json" },
