@@ -1,10 +1,14 @@
 import React from "react";
 import { Link, withRouter } from "react-router-dom";
-import { AppContainer, CenterContainer } from "./Container.style";
+import {
+  AppContainer,
+  CenterContainer,
+  AppContainerWhite,
+} from "./Container.style";
 import { Button } from "./Button.style.js";
 import Read from "../images/read.png";
 import Send from "../images/sent.png";
-import Speak from "../images/speak.png";
+import Speak from "../images/speak.svg";
 import Write from "../images/write.png";
 import "../global.css";
 import {
@@ -15,24 +19,24 @@ import {
 
 function Tutorial() {
   return (
-    <AppContainer>
+    <AppContainerWhite>
       <h1>Tutorial</h1>
-      <h2>Thank you for connecting to Telegran</h2>
-      <h3>To set up, follow instructions below.</h3>
+      <h2>Thank you for connecting to Telegran!</h2>
       <TutorialContainer>
         <InstructionsContainer>
           <div>
             <ul>
-              <li>Insert Slack Workspace ID and click Connect</li>
-              <br></br>
               <li>
-                <p>View Messages: </p>
+                <h4>Insert Slack Workspace ID and click Connect</h4>
+              </li>
+              <li>
+                <h4>View Messages </h4>
                 Click on messages (envelope icon) to read all messages.
               </li>
 
               <br></br>
               <li>
-                <p>Send New Message: </p>
+                <h4>Send New Message </h4>
                 Click on write (pen and paper icon) to write your new message.
                 <br></br>Type your message in the box and press send
                 <br></br>Alternative option if you want to speak your message
@@ -46,7 +50,7 @@ function Tutorial() {
               </li>
               <br></br>
               <li>
-                <p>Send Emergency Message: </p>
+                <h4>Send Emergency Message </h4>
                 Click on emergency (SOS icon) to send your automatic help
                 message to the Slack channel for all your family and friends
                 after 10 seconds.
@@ -81,7 +85,7 @@ function Tutorial() {
           </Link>
         </Button>
       </CenterContainer>
-    </AppContainer>
+    </AppContainerWhite>
   );
 }
 
