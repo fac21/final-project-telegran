@@ -92,3 +92,11 @@
   max-height: 200px;
   max-width: 200px;
 }
+
+@media (min-width: 0px) and (max-width: 600px) {
+  .mobile-box {
+    display: flex;
+    flex-direction: column;
+    min-width: 100vw;
+  }
+}

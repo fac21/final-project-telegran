@@ -19,7 +19,7 @@ import {
 
 function Tutorial() {
   return (
-    <AppContainerWhite>
+    <AppContainerWhite className="mobile-box">
       <h1>Tutorial</h1>
       <h2>Thank you for connecting to Telegran!</h2>
       <TutorialContainer>
