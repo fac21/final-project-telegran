@@ -5,6 +5,8 @@ import { Link, withRouter } from "react-router-dom";
 import write from "../images/write.svg";
 import { AppContainer } from "./Container.style";
 import { Button } from "./Button.style.js";
+import Nav from "./Navbar.jsx";
+import { NavContainer } from "./Nav.style.jsx";
 import profile from "../images/profile.svg";
 import mic from "../images/mic.svg";
 import micoff from "../images/micoff.svg";
@@ -73,53 +75,46 @@ function Speak() {
         </MessageTop>
 
         <MessageText>
-          <div className="spokenWords">
-            {/* <button
-              onClick={SpeechRecognition.startListening({
-                continuous: true,
-              })}
-            >
-              Start{" "}
-            </button>
-            <button onClick={SpeechRecognition.stopListening}>Stop</button>
-            <button onClick={resetTranscript}>Reset</button> */}
-
-            <button id="microphone" onClick={toggleRecording}>
-              <img
-                src={recording ? mic : micoff}
-                alt="microphone"
-                className="icon"
-              ></img>
-            </button>
-
-            {/* <button id="stopRecording">Stop Recording</button>
-           <img src={microphone} alt="microphone" className="icon"></img>  */}
-          </div>
-          <p>Press here to type your message</p>
-
           <form
             className="form"
             onSubmit={handleSubmit}
             onChange={(event) => setMessageContent(event.target.value)}
           >
-            <textarea
-              value={transcript}
-              rows="5"
-              cols="20"
-              id="text"
-              name="text"
-              placeholder="Start typing..."
-              className="text-area"
-            ></textarea>
-
+            <div className="textContainer">
+              <textarea
+                value={transcript}
+                rows="8"
+                cols="25"
+                id="text"
+                name="text"
+                placeholder="Start speaking..."
+                className="text-area"
+              ></textarea>
+              <button
+                id="microphone"
+                onClick={toggleRecording}
+                className="mic-btn"
+              >
+                <img
+                  src={recording ? mic : micoff}
+                  alt="microphone"
+                  className="icon"
+                ></img>
+              </button>
+            </div>
+            <div className="write-link">
             <Link to="/write">
               <img src={write} alt="write" className="icon"></img>
-              <div>Write</div>
+              <p className="type-link">Press here to type your message</p>
             </Link>
-            <button id="send">Send</button>
+              <button id="send">Send</button>
+            </div>
           </form>
         </MessageText>
       </MessageContainer>
+      <NavContainer>
+        <Nav />
+      </NavContainer>
     </AppContainer>
   );
 }
