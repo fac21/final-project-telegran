@@ -8,4 +8,5 @@ export const NavContainer = styled.div`
   bottom: 0;
   position: fixed;
   padding: 0.6rem;
+  text-align: center;
 `;

@@ -1,8 +1,8 @@
 import React, { useEffect } from "react";
 import { Link, withRouter } from "react-router-dom";
 import Nav from "./Navbar.jsx";
-// import ReceivedMessage from "./ReceivedMessage.jsx";
-import { MessageHeading, StyledMessage } from "./Message.style";
+import ReceivedMessage from "./ReceivedMessage.jsx";
+// import { MessageHeading, StyledMessage } from "./Message.style";
 import { AppContainer } from "./Container.style";
 import { NavContainer } from "./Nav.style";
 import Avatar from "../images/profile.svg";
@@ -18,20 +18,6 @@ function Messages() {
       .catch((error) => console.error("Oops message not received!", error));
   }, []);
   console.log("message Data", messageData);
-  // const fakeData = [
-  //   {
-  //     name: "Nafisa",
-  //     timestamp: "07/06/2021, 11.00am",
-  //     messageContent: "Hi gran how are you",
-  //   },
-  //   {
-  //     name: "Chisha",
-  //     timestamp: "06/06/2021, 10.00am",
-  //     messageContent: "Love u grandad",
-  //   },
-  // ];
-
-  // const NUM_OF_MESSAGES = 4;
 
   function messageName() {
     let names = [
@@ -52,22 +38,23 @@ function Messages() {
 
   const slackMessages = messageData.map((msg, index) => {
     return (
-      <StyledMessage>
-        <MessageHeading>
-          <p>{<img src={Avatar} />}</p>
-          <p>{messageName()}</p>
-          <p>8th February 11:25</p>
-        </MessageHeading>
+      // <StyledMessage>
+        // <MessageHeading>
+        <ReceivedMessage
+          key={index}
+            // messageAvatar={fakeData.map((msg) => msg.avatar)[index]}
+            messageName={messageName()}
+            messageTime='8th February 11:25'
+          messageContent={msg.text}
+        >
 
-        <p>{msg.text}</p>
-      </StyledMessage>
+        </ReceivedMessage>
     );
   });
   console.log("slack messages", slackMessages);
   return (
     <AppContainer>
       <div>{slackMessages}</div>
-
       <Link to="/message1">Read message</Link>
       {/* <button onClick={retrievedMessages}>Button</button> */}
       <NavContainer>
