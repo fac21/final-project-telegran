@@ -25,7 +25,7 @@ TeleGran is a full stack web application built in React that serves message data
 	- [REST API Endpoints](#REST-API-Endpoints)
 - [📆 Project Timeline](#📆-Project-Timeline)
 - [Reflections and What Next](#Reflections-and-what-next)
-- [👨‍🏫 Key takeaways](#👨‍🏫-Key-takeaways)
+- [👨‍🏫 Key Learnings](#👨‍🏫-Key-Learnings)
 - [⏳ Additional Features](#⏳-Additional-Features)
 
 ## Tech Stack
