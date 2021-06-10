@@ -8,5 +8,9 @@ export const AppContainer = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  /* padding-bottom: 25rem; */
+  margin-bottom: 5rem;
+`;
+
+export const CenterContainer = styled.div`
+  text-align: center;
 `;
