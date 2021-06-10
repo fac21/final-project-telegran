@@ -1,5 +1,7 @@
 # FAC Final Project: Telegran :envelope: 
 
+![](https://i.imgur.com/GoG8UCe.png)
+
 ## Project Overview
 
 An app created to connect families with their older relatives via Slack. TeleGran was created to support elderly people who struggle with the UI of traditional messaging platforms.
@@ -28,24 +30,31 @@ TeleGran is a full stack web application built in React that serves message data
 
 ## Tech Stack
 
-DELETE THIS
-![tech-stack](https://i.imgur.com/Iw9D8vT.png)
+![tech-stack](https://i.imgur.com/5xZBiy6.png)
 
 #### Dependencies
+Client side:
+- @react-hook/window-size
+- node-fetch
+- react
+- react-confetti
+- react-router-dom
+- react-dom
+- react-speech-recognition
+- styled-components
+
+Server side:
 - dotenv - Allows private variables to be added (API)
 - nodemon - Restarts the server automatically when you make a change to the code
-- MORE
-
-#### Dev Dependencies
-
-- MORE
+- express
+- 
 
 ## Features
 What can you do?
 
-- You can TBC
-- You can TBC
-- You can TBC
+- You can send a message to a Slack channel ✍️
+- You can send an emergency message to a Slack channel 🆘
+- You can view the last few messages sent to a Slack channel 👀
 
 
 ## 🏁 Using this project
