@@ -38,6 +38,10 @@
   left: 0;
 }
 
+.center {
+  text-align: center;
+}
+
 .text-area {
   height: 40vh;
   width: 80vw;
