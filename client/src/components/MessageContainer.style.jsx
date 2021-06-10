@@ -28,4 +28,5 @@ export const MessageButtons = styled.div`
   width: 100%;
   flex-direction: row;
   font-size: 1rem;
+  align-items: flex-end;
 `;

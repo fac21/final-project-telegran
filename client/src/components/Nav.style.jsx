@@ -7,4 +7,5 @@ export const NavContainer = styled.div`
   margin-top: 2rem;
   bottom: 0;
   position: fixed;
+  padding: 0.6rem;
 `;

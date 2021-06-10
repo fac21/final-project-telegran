@@ -6,6 +6,7 @@ import send from "../images/send.svg";
 import profile from "../images/profile.svg";
 import { NavContainer } from "./Nav.style.jsx";
 import { AppContainer } from "./Container.style";
+import { Button } from "./Button.style.js";
 import {
   MessageContainer,
   MessageTop,
@@ -35,12 +36,12 @@ function Write() {
 
   return (
     <div>
-      <button>
-        <a href="/messages" className="text-link">
-          Go back
-        </a>
-      </button>
       <AppContainer>
+        <Button className="back-button">
+          <a href="/messages" className="text-link">
+            Go back
+          </a>
+        </Button>
         <MessageContainer>
           <MessageTop>
             <span>To:</span>
@@ -49,19 +50,19 @@ function Write() {
           </MessageTop>
           <MessageText>
             <form
+              className="form"
               onSubmit={handleSubmit}
               onChange={(event) => setMessageContent(event.target.value)}
             >
               <textarea
-                rows="15"
-                cols="50"
+                rows="5"
+                cols="20"
                 id="text"
                 name="text"
                 placeholder="Start typing..."
+                className="text-area"
               ></textarea>
-              <p>
-                <button type="submit">Submit</button>
-              </p>
+              <Button type="submit">Send</Button>
             </form>
           </MessageText>
           <MessageButtons>

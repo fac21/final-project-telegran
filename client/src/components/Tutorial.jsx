@@ -1,6 +1,7 @@
 import React from "react";
 import { Link, withRouter } from "react-router-dom";
 import { AppContainer } from "./Container.style";
+import { Button } from "./Button.style.js";
 
 function Tutorial() {
   return (
@@ -15,16 +16,16 @@ function Tutorial() {
           <li>text</li>
         </ol>
         <div>
-          <button type="submit">
+          <Button>
             <Link to="/video" className="text-link">
               Video Tutorial
             </Link>
-          </button>
-          <button type="submit">
+          </Button>
+          <Button type="submit">
             <Link to="/welcome" className="text-link">
               Skip
             </Link>
-          </button>
+          </Button>
         </div>
       </div>
     </AppContainer>

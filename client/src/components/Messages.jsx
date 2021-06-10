@@ -51,7 +51,6 @@ function Messages() {
   }
 
   const slackMessages = messageData.map((msg, index) => {
-    console.log(msg);
     return (
       <StyledMessage>
         {/* <div>{messageData}</div> */}
@@ -60,7 +59,8 @@ function Messages() {
           // messageAvatar={messageData.map((msg) => msg.avatar)[index]}
           messageName={messageName()}
           messageTime="01/01/2021"
-          messageContent={messageData.map((msg) => msg.text)[index]}
+          // messageContent={messageData.map((msg) => msg.text)[index]
+          messageContent={ msg.text }
           // setMessageData={setMessageData}
         />
       </StyledMessage>

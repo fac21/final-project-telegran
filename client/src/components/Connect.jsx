@@ -2,6 +2,7 @@ import React from "react";
 import { Link, withRouter } from "react-router-dom";
 import logo from "../logo.png";
 import { AppContainer } from "./Container.style";
+import { Button } from "./Button.style.js";
 
 function Connect() {
   return (
@@ -15,12 +16,12 @@ function Connect() {
         <label>Workspace ID:</label>
         <input></input>
       </form>
-      <button type="submit">
+      <Button>
         {" "}
         <Link to="/connection-success" className="text-link">
           Connect
         </Link>
-      </button>
+      </Button>
     </AppContainer>
   );
 }

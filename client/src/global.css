@@ -8,6 +8,12 @@
   width: 5rem;
 }
 
+.form {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+
 .text-link {
   text-decoration: none;
   color: black;
@@ -15,4 +21,16 @@
 
 * {
   margin-top: 0;
+}
+
+.back-button {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.text-area {
+  font-size: 20pt;
+
+  color: black;
 }
