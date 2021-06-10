@@ -33,7 +33,7 @@ TeleGran is a full stack web application built in React that serves message data
 ![tech-stack](https://i.imgur.com/5xZBiy6.png)
 
 #### Dependencies
-Client side:
+**Client side:**
 - @react-hook/window-size
 - node-fetch
 - react
@@ -43,11 +43,10 @@ Client side:
 - react-speech-recognition
 - styled-components
 
-Server side:
+**Server side:**
 - dotenv - Allows private variables to be added (API)
 - nodemon - Restarts the server automatically when you make a change to the code
 - express
-- 
 
 ## Features
 What can you do?
@@ -65,69 +64,71 @@ What can you do?
    git clone https://github.com/fac21/final-project-telegran.git
    cd final-project-telegran
    npm install
+   cd client
+   npm install
+   cd ../server
+   npm install
+   cd ..
    ```
-
-2. Create a `.env` file for environment variables in your server.
+   
+2. Create `.env` files for environment variables in your client and server folders.
 
    ```bash
-   touch .env
+   touch ./server/.env
+   touch ./client/.env
    ```
 
-3. Start the server
-
-   You can start the server on its own with the command:
+3. The .env files should contain the following:
 
    ```bash
-   npm run server
+   // server/.env
+	INCOMING_WEBHOOK_URL=your_webhook_url
+	BOT_USER_OAUTH_TOKEN=your_bot_user_oauth_token
+	SLACK_CHANNEL_ID=your_channel_id
+	
+   // client/.env
+	REACT_APP_API_URL='http://localhost:3001'
    ```
+- To create your webhook URL: https://api.slack.com/messaging/webhooks#create_a_webhook
 
-   Run the React application on its own with the command:
+- To get your bot token, find your app at https://api.slack.com/apps, navigate to "OAuth & Permissions" and copy the bot token from the "OAuth Tokens for Your Workspace" section·
+
+- To get your Slack channel ID, go to Slack, right click on the channel name in the left-hand navigation pane and click "copy link". The link will be in the form https://<workspace-name>.slack.com/archives/<channel_id>.
+
+
+ 
+
+3. Start the servers
+
+   Open a new terminal, enter the server folder and start the server on its own with the command:
 
    ```bash
    npm start
    ```
 
-   Run both applications together with the command:
+   Open another terminal, enter the client folder and start the React application on its own with the command:
 
    ```bash
-   npm run dev
+   npm start
    ```
 
    The React application will run on port 3000 and the server port 3001.
-
-<!-- 2. Run `npm run gap` → this will npm i the three package.jsons in
-
-- client-app/
-- server-api/
-- Root folder 
-
-Make sure you do `npm start` in the client-app/ and server-api/ folders respectively when running the project. -->
+	
+   Make sure you do `npm start` in the client-app/ and server-api/ folders respectively when running the project. 
 
 
 ---
 
+### REST API Endpoints
 
-<!-- ### REST API Endpoints
-
-Examples of body and example response can be found in the following Postman collection:
-
-[![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/49b550d2bcb9bb2c74a7)
 
 ### GET
 
-
-- GET all customers: `http://localhost:8080/customers/`
-- GET all customer coordinates:`http://localhost:8080/customers/coords`
-
+- GET last four messages from Slack: `http://localhost:3001/api/read-messages`
 
 ### POST
-- POST signup new vendor `http://localhost:8080/vendors/signup`
-- POST login vendor `http://localhost:8080/vendors/login`
-
-
-### Delete
-- DELETE route:`http://localhost:8080/routes/:name` -->
-
+- POST new message to Slack `http://localhost:3001/api/write-message`
+- POST emoji to Slack `http://localhost:3001/api/add-emoji`
 
 ---
 
@@ -139,43 +140,40 @@ This week was spent identifying key design heuristics we wanted to incorporate i
 <!-- For an overview of the project's user stories, check out the [User stories](https://github.com/fac19/week11-where-is-whippy/issues/3) here -->
 
 The initial prototype can be viewed here on [Figma](https://www.figma.com/file/IfZ16NjPCNCI6yEGZs6kvG/Untitled?node-id=0%3A1)
-<!-- ![figma prototype](https://i.imgur.com/E0INPni.png) -->
+![figma prototype](https://i.imgur.com/7QHYoQR.png)
 
-
-Through our initial user research, we learnt that ice cream vendors are not keen to have their location shared constantly with customers, so would like to have full control of how visible they are on the map, and this impacted our final MVP design.
-
+Through our initial user research, a lot of our assumptions were challenged. For example, we learned that the SOS symbol is not as universal as we first thought, so we made sure that the navigation icons had the written version underneath too. 
 
 
 ### 🔧 Week 2: First Build Sprint
 By the end of the first build sprint, we had accomplished the following:
-* Initial set up of PostgresQL database
-* Set up Travis CI and Husky as part of initial setup
-* Deployment of frontend and backend from a monorepo
-* Finalized style guide
+* Initial set up of filebase using React
+* Wrote UI tests using Cypress
 * Set up React router for for the front-end to serve different pages
+* Proxy requests from React application to server when running locally.
+* Able to write messages to Slack from our app.
+* Implement speech-to-text functionality
 
 
 ### 🔨 Week 3: Second Build Sprint
 By the end of the second build sprint, we were able to :
-* Create the heatmap for ice cream vendors to view nearby customers who are interested in icecream
-* Set up codecov to monitor test coverage on the project
-* Add functionality for customers to let ice cream vendors know they would like ice cream
-* Include geolocation api tracking for customers
+* Deploy frontend and backend from a monorepo
+* Use Styled Components for CSS across the app
+* Retrieve messages from Slack using our API endpoint
+* Send messages to Slack that have been written using the speech-to-text function.
 
 
 ## Reflections and what next
-### 👨‍🏫 Key takeaways
+### 👨‍🏫 Key Learnings
 * React router to serve different pages for diferent users
-* Using React context to make state management more streamlined in your React app
-* Implementing and customising Google Map and Geocoding APIs in React
-* How to scope a MVP properly and prototype in Figma
-* Most importantly, everyone loves icecream :icecream: 
+* A thorough understanding of using package.json, .env and how to alleviate nested package hell!
+* Implementing and customising Slack APIs in React
+* How to scope an MVP properly and prototype in Figma
 
 ### ⏳ Additional Features
-Unfortunately, there were a few features we were unable to incorporate into the MVP due to time constraints. These included:
-* The map customers where they could see their nearest ice cream vendor
-* The routes feature for vendors which allows them to upload, edit and store their routes
-* Style the heatmap based on the prototype
-* Add an emergency exit for users
-* No authorization on the API's endpoints
-* Minimal frontend tests
+There were a few features we were unable to incorporate into the MVP due to time constraints. These included:
+* Make the SOS message customizable.
+* Upload a profile picture, or fetch the avatar image from Slack
+* Read content of an individual message, including the "Send Love" feature.
+* Receive and store the user's Slack workspace ID
+* Video tutorial
