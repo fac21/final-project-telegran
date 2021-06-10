@@ -19,7 +19,6 @@ function Write() {
   const [messageContent, setMessageContent] = React.useState("");
 
   function handleSubmit(event) {
-    console.log("handle submit in write");
     const message = messageContent;
     event.preventDefault();
     fetch(`${process.env.REACT_APP_API_URL}/api/write-message`, {
