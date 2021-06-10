@@ -23,7 +23,7 @@ import SpeechRecognition, {
 
 function Speak() {
   const { transcript, resetTranscript } = useSpeechRecognition();
-  const [messageContent, setMessageContent] = React.useState("");
+  const [speakContent, setSpeakContent] = React.useState("");
   const [recording, setRecording] = React.useState("true");
 
   if (!SpeechRecognition.browserSupportsSpeechRecognition()) {
@@ -32,10 +32,9 @@ function Speak() {
 
   function toggleRecording() {
     if (recording) {
-      console.log(recording, "about to stop listening");
       SpeechRecognition.stopListening();
+     
     } else {
-      console.log(recording, "about to start listening");
       SpeechRecognition.startListening({
         continuous: true,
       });
@@ -44,8 +43,10 @@ function Speak() {
   }
 
   function handleSubmit(event) {
-    console.log("button has been pressed")
-    const message = messageContent;
+
+    const message = transcript;
+
+
     event.preventDefault();
     fetch(`${process.env.REACT_APP_API_URL}/api/write-message`, {
       method: "POST",
@@ -58,7 +59,8 @@ function Speak() {
       })
       .catch((error) => console.error("Oops!", error));
   }
-
+  // console.log(speakContent);
+  // console.log(transcript);
   return (
     <AppContainer>
       <Button className="back-button">
@@ -79,7 +81,9 @@ function Speak() {
           <form
             className="form"
             onSubmit={handleSubmit}
-            onChange={(event) => setMessageContent(event.target.value)}
+            onChange={(event) =>
+              setSpeakContent(console.log(event.target.value))
+            }
           >
             <div className="textContainer">
               <textarea
@@ -104,10 +108,10 @@ function Speak() {
               </button>
             </div>
             <div className="write-link">
-            <Link to="/write">
-              <img src={write} alt="write" className="icon"></img>
-              <p className="type-link">Press here to type your message</p>
-            </Link>
+              <Link to="/write">
+                <img src={write} alt="write" className="icon"></img>
+                <p className="type-link">Press here to type your message</p>
+              </Link>
               <button id="send">Send</button>
             </div>
           </form>
