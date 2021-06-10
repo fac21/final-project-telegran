@@ -25,7 +25,7 @@ function Emergency() {
   function sendSOS() {
     // const message = event.target.message.value;
     const message = "SOS: Please call me";
-    fetch("/api/write-message", {
+    fetch(`${process.env.REACT_APP_API_URL}/api/write-message`, {
       method: "POST",
       body: JSON.stringify({ message }),
       headers: { "content-type": "application/json" },

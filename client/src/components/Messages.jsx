@@ -12,7 +12,7 @@ function Messages() {
   const [messageData, setMessageData] = React.useState([]);
 
   React.useEffect(() => {
-    fetch("/api/read-messages", {})
+    fetch(`${process.env.REACT_APP_API_URL}/api/read-messages`, {})
       .then((response) => response.json())
       .then((data) => setMessageData(data))
       .catch((error) => console.error("Oops message not received!", error));

@@ -14,6 +14,21 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(pino);
 app.use(express.json());
 
+// Add Access Control Allow Origin headers
+app.use((req, res, next) => {
+  res.setHeader("Access-Control-Allow-Origin", "*");
+  res.header(
+    "Access-Control-Allow-Headers",
+    "Origin, X-Requested-With, Content-Type, Accept"
+  );
+  next();
+});
+
+app.get("/", (req, res) => {
+  res.send("Server is Running!");
+});
+
+
 app.post("/api/write-message", (req, res) => {
   console.log("in app.post write");
   const message = {
@@ -51,3 +66,5 @@ app.listen(PORT, () => {
   //     text: "The server has started running!"
   //   });
 });
+
+

@@ -19,10 +19,9 @@ function Write() {
   const [messageContent, setMessageContent] = React.useState("");
 
   function handleSubmit(event) {
-    console.log("handle submit in write");
     const message = messageContent;
     event.preventDefault();
-    fetch("/api/write-message", {
+    fetch(`${process.env.REACT_APP_API_URL}/api/write-message`, {
       method: "POST",
       body: JSON.stringify({ message }),
       headers: { "content-type": "application/json" },
@@ -62,7 +61,6 @@ function Write() {
                 placeholder="Start typing..."
                 className="text-area"
               ></textarea>
-
               <Button type="submit">Send</Button>
             </form>
           </MessageText>
