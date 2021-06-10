@@ -16,12 +16,11 @@ TeleGran is a full stack web application built in React that serves message data
 - [Chun](https://github.com/chunzg) - Scrum Facilitator / Developer :clipboard: 
 
 ## Contents
-- [Project overview](#Project-overview)
-- [The team](#The-team)
+- [Project Overview](#Project-Overview)
+- [Team](#Team)
 - [Tech Stack](#Tech-Stack)
 - [Features](#Features)
 - [🏁 Using this project](#🏁-Using-this-project)
-	- [Database setup](#Database-setup)
 	- [REST API Endpoints](#REST-API-Endpoints)
 - [📆 Project Timeline](#📆-Project-Timeline)
 - [Reflections and What Next](#Reflections-and-what-next)
