@@ -1,11 +1,11 @@
 import React, { useEffect } from "react";
 import { Link, withRouter } from "react-router-dom";
 import Nav from "./Navbar.jsx";
-import ReceivedMessage from "./ReceivedMessage.jsx";
-import { StyledMessage } from "./Message.style";
+// import ReceivedMessage from "./ReceivedMessage.jsx";
+import { MessageHeading, StyledMessage } from "./Message.style";
 import { AppContainer } from "./Container.style";
 import { NavContainer } from "./Nav.style";
-// import Avatar from "../images/profile.svg";
+import Avatar from "../images/profile.svg";
 const fetch = require("node-fetch");
 
 function Messages() {
@@ -17,7 +17,7 @@ function Messages() {
       .then((data) => setMessageData(data))
       .catch((error) => console.error("Oops message not received!", error));
   }, []);
-
+  console.log("message Data", messageData);
   // const fakeData = [
   //   {
   //     name: "Nafisa",
@@ -53,23 +53,21 @@ function Messages() {
   const slackMessages = messageData.map((msg, index) => {
     return (
       <StyledMessage>
-        {/* <div>{messageData}</div> */}
-        <ReceivedMessage
-          key={index}
-          // messageAvatar={messageData.map((msg) => msg.avatar)[index]}
-          messageName={messageName()}
-          messageTime="01/01/2021"
-          // messageContent={messageData.map((msg) => msg.text)[index]
-          messageContent={ msg.text }
-          // setMessageData={setMessageData}
-        />
+        <MessageHeading>
+          <p>{<img src={Avatar} />}</p>
+          <p>{messageName()}</p>
+          <p>8th February 11:25</p>
+        </MessageHeading>
+
+        <p>{msg.text}</p>
       </StyledMessage>
     );
   });
-
+  console.log("slack messages", slackMessages);
   return (
     <AppContainer>
       <div>{slackMessages}</div>
+
       <Link to="/message1">Read message</Link>
       {/* <button onClick={retrievedMessages}>Button</button> */}
       <NavContainer>
