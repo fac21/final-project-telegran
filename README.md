@@ -1,4 +1,4 @@
-# FAC Final Project: Telegran :envelope: :grandmother:
+# FAC Final Project: Telegran :envelope: 
 
 ## Project Overview
 
