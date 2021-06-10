@@ -1,6 +1,6 @@
 # FAC Final Project: Telegran :envelope: 
 
-![](https://i.imgur.com/GoG8UCe.png)
+![telegran.netlify.app/](https://i.imgur.com/GoG8UCe.png)
 
 ## Project Overview
 
