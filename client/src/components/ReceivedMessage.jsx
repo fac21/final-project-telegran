@@ -34,7 +34,7 @@ function ReceivedMessage(props) {
           <img className="avatar" src={Avatar} alt="avatar"></img>
           <div className="time">{props.messageTime} </div>
           <div className="name">{props.messageName} </div>
-          <div className="content">{props.messageContent} </div>
+          <div id="content" className="content">{props.messageContent} </div>
           <button onClick={sendEmoji}>👍 </button>
         </div>
       </AppContainer>
