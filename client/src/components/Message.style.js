@@ -4,7 +4,7 @@ export const StyledMessage = styled.div`
   display: flex;
   flex-direction: column;
   border: black solid 2px;
-  margin-bottom: 1rem;
+  margin-top: 1rem;
   padding: 1rem;
 `;
 

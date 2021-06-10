@@ -44,6 +44,7 @@ function Speak() {
   }
 
   function handleSubmit(event) {
+    console.log("button has been pressed")
     const message = messageContent;
     event.preventDefault();
     fetch(`${process.env.REACT_APP_API_URL}/api/write-message`, {
