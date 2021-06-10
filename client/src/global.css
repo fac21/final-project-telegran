@@ -8,6 +8,15 @@
   width: 5rem;
 }
 
+.mic-btn {
+  position: absolute;
+  bottom: 1rem;
+  left: 0;
+  z-index: 100;
+  background: none;
+  border: none;
+}
+
 .form {
   display: flex;
   flex-direction: column;
@@ -30,7 +39,38 @@
 }
 
 .text-area {
-  font-size: 20pt;
-
+  height: 40vh;
+  width: 80vw;
+  font-size: 16pt;
   color: black;
+  position: relative;
+}
+
+/* .speakForm {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+} */
+
+.textContainer {
+  position: relative;
+}
+.write-link {
+  display: flex;
+}
+/* .type-link {
+  margin: 0.5rem;
+}
+.write-icon {
+  margin: 0.5rem;
+  width: 5rem;
+} */
+
+@media (min-width: 1025px) and (max-width: 1280px) {
+  .text-area {
+    height: 40vh;
+    width: 40vw;
+    font-size: 20pt;
+  }
 }
