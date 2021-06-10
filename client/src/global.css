@@ -74,3 +74,8 @@
     font-size: 20pt;
   }
 }
+
+.tutorial-image {
+  max-height: 200px;
+  max-width: 200px;
+}
