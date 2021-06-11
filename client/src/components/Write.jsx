@@ -7,6 +7,7 @@ import profile from "../images/profile.svg";
 import { NavContainer } from "./Nav.style.jsx";
 import { AppContainer } from "./Container.style";
 import { Button } from "./Button.style.js";
+import { Link, withRouter } from "react-router-dom";
 import {
   MessageContainer,
   MessageTop,
@@ -61,7 +62,9 @@ function Write() {
                 placeholder="Start typing..."
                 className="text-area"
               ></textarea>
-              <Button type="submit">Send</Button>
+              <Button type="submit" onClick={handleSubmit}>
+                <Link to="/message-sent">Send</Link>
+              </Button>
             </form>
           </MessageText>
           <MessageButtons>
